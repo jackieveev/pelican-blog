@@ -53,6 +53,7 @@ def rebuild(c):
 @task
 def regenerate(c):
     """Automatically regenerate site upon file modification"""
+    print('xxxx')
     c.run('pelican -r -s {settings_base}'.format(**CONFIG))
 
 @task

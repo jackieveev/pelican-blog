@@ -1,6 +1,7 @@
 from pelican import signals
 from pelican.contents import Article
 import uuid, json, pathlib
+from bs4 import BeautifulSoup
 
 map = {'articles': []}
 
@@ -33,6 +34,11 @@ def finalized(wasted):
     with open('map.json', 'w', encoding='utf8') as file:
         json.dump(map, file, ensure_ascii=False, indent=4)
 
+def add_summary(content):
+    if (isinstance(content, Article)):
+        content._summary = BeautifulSoup(content.content, 'html.parser').text.replace('\n', ' ')
+
 def register():
     signals.content_object_init.connect(add_article_uuid)
+    signals.content_object_init.connect(add_summary)
     signals.finalized.connect(finalized)

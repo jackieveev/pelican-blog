@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+{% block main %}
+    {% if articles %}
+        {% if not articles_previous_page %}
+            <article class="top-article">
+                <h3 class="top-article-header">
+                    最新文章
+                </h3>
+                <div class="top-article-title">
+                    <h2>{{ articles_page.object_list[0].title }}</h2>
+                    <div class="auth-create-time">
+                        <strong>{{ articles_page.object_list[0].author }}</strong>
+                        <span>{{ articles_page.object_list[0].locale_date }}</span>
+                    </div>
+                </div>
+                <div class="article-summary">
+                    {{ articles_page.object_list[0]._summary }}
+                </div>
+            </article>
+        {% endif %}
+        <div class="recent-article">
+            {% for article in articles_page.object_list[1 if not articles_previous_page else 0:] %}
+                <article>
+                    <h3>{{ article.title }}</h3>
+                </article>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

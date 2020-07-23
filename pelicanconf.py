@@ -10,10 +10,13 @@ PATH = 'content'
 
 TIMEZONE = 'Hongkong'
 
+THEME = 'themes/paper'
+
 # locale.getdefaultlocale returns on Windows is wrong
 # DEFAULT_LANG = 'Chinese (Simplified)'
 DEFAULT_LANG = 'en'
 DEFAULT_DATE = 'fs'
+DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
