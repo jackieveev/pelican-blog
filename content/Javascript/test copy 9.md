@@ -1,7 +1,4 @@
 Title: babel 智能可视化——数据分析领域的金手指
 Tags: 可视化, 大数据
-Summary: Short version for index and feeds
 
-This is the content of my super blog post.
-
-## 你好呀
+由蚂蚁金服举办的 2020 年 SEE Conf 体验科技大会，在上周六 1 月 4 日落下了帷幕，相信去过现场的各位都对 “搞毛线” 展台印象深刻。 据悉，当天共有约 700 人现场参会，参与可视化展台的连线故事就有 135 人：相当于每 5.18 个人中就有一…

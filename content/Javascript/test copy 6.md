@@ -1,7 +1,4 @@
 Title: 解放图形化设计生产力 - HiTu
 Tags: hitu
-Summary: Short version for index and feeds
 
-This is the content of my super blog post.
-
-## 你好呀
+导读在蚂蚁内部有着数量繁多且复杂的中后台业务系统，Ant Design 一直以来致力于从设计策略和资产的角度解决这些产品的体验一致性问题，随着蚂蚁产品生态的多端化进程，越来越多的跨设备和不同屏幕尺寸导致的问题也逐渐暴露，例如： XX 能力…

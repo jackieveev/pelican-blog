@@ -1,7 +1,4 @@
 Title: Ant Design 4.0 ，脱离业务的框架都是耍流氓
 Tags: antd
-Summary: Short version for index and feeds
 
-This is the content of my super blog post.
-
-## 你好呀
+摘要：智能可视化是什么？为什么如此重要？最快速地接触甚至参与智能可视化 —— AVA 什么是智能可视化数据可视化，通俗来说，就是将数据制作成图表，以便直观了解数据和从数据中发现信息。它是数据和人之间的桥梁、数据分析链条上的“最后…

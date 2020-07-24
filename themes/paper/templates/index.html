@@ -3,29 +3,98 @@
 {% endblock %}
 {% block main %}
     {% if articles %}
-        {% if not articles_previous_page %}
+        {% set show_top_article = page_name == 'index' and not articles_previous_page %}
+        {% if show_top_article %}
             <article class="top-article">
-                <h3 class="top-article-header">
+                <h3 class="article-panel-header">
                     最新文章
                 </h3>
-                <div class="top-article-title">
-                    <h2>{{ articles_page.object_list[0].title }}</h2>
+                <div class="article-title-wrapper">
+                    <h2 class="article-title ellipsis-text">{{ articles_page.object_list[0].title }}</h2>
                     <div class="auth-create-time">
                         <strong>{{ articles_page.object_list[0].author }}</strong>
-                        <span>{{ articles_page.object_list[0].locale_date }}</span>
+                        <span>{{ articles_page.object_list[0].human_read_date }}</span>
                     </div>
                 </div>
+                {% if articles_page.object_list[0].tags %}
+                    <div class="article-info-tags">
+                        标签：
+                        {% for tag in articles_page.object_list[0].tags %}
+                            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
                 <div class="article-summary">
-                    {{ articles_page.object_list[0]._summary }}
+                    {{ articles_page.object_list[0]._summary[:230] }}…<a href="" class="goto-article">阅读全文<i class="iconfont arrowright"></i></a>
+                </div>
+                <div class="article-operation">
+                    <div class="article-view hint-text">
+                        阅读87k次
+                    </div>
+                    <div class="operation-upvote">
+                        点赞8654<i class="iconfont heart"></i>
+                    </div>
+                    <a class="operation-share other-operation">
+                        分享
+                    </a>
+                    <a class="operation-comment other-operation">
+                        评论24条
+                    </a>
                 </div>
             </article>
         {% endif %}
         <div class="recent-article">
-            {% for article in articles_page.object_list[1 if not articles_previous_page else 0:] %}
+            {% if show_top_article %}
+                <h3 class="article-panel-header">
+                    文章列表
+                </h3>
+            {% endif %}
+            {% for article in articles_page.object_list[1 if show_top_article else 0:] %}
                 <article>
-                    <h3>{{ article.title }}</h3>
+                    <h3 class="article-title ellipsis-text">{{ article.title }}</h3>
+                    <div class="auth-create-time">
+                        <strong>{{ article.author }}</strong>
+                        <span>发布于{{ article.human_read_date }}</span>
+                    </div>
+                    <div class="article-summary">
+                        {{ article._summary[:160] }}
+                    </div>
+                    <div class="article-operation">
+                        {% if article.tags %}
+                            <div class="article-info-tags">
+                                标签：
+                                {% for tag in article.tags %}
+                                    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="article-view hint-text">
+                            阅读87k次
+                        </div>
+                        <div class="operation-upvote">
+                            点赞8654
+                        </div>
+                        <a class="operation-share other-operation">
+                            分享
+                        </a>
+                        <a class="operation-comment other-operation">
+                            评论24条
+                        </a>
+                    </div>
                 </article>
             {% endfor %}
+            {% if articles_page.has_other_pages() %}
+                <div class="article-paginator">
+                    <span class="hint-text">共{{ articles_paginator.num_pages }}页</span>
+                    {% if articles_page.has_previous() %}
+                        <a class="article-paginator-jumper" href="{{ SITEURL }}/{{ articles_previous_page.url }}">上一页</a>
+                    {% endif %}
+                    <input class="paginator-input mini" type="text" value="{{ articles_page.number }}">
+                    {% if articles_page.has_next() %}
+                        <a class="article-paginator-jumper" href="{{ SITEURL }}/{{ articles_next_page.url }}">下一页</a>
+                    {% endif %}
+                </div>
+            {% endif %}
         </div>
     {% endif %}
 {% endblock %}

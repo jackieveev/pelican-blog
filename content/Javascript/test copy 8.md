@@ -1,7 +1,4 @@
 Title: 蚂蚁金服 Web 3D 技术探索之路 - SEE Conf
 Tags: web3d
-Summary: Short version for index and feeds
 
-This is the content of my super blog post.
-
-## 你好呀
+摘要面对企业级产品，由于系统复杂度和业务领域的专业壁垒，用户、产品、业务、技术的理解和分析难度都远远高于C 端。特别是进入业务深水区，技术术语层出不穷，角色链路错综交织，场景越来越复杂，在理解和分析业务上设计师需要耗费的精力…

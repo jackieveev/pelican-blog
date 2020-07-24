@@ -1,7 +1,4 @@
 Title: 阿里巴巴语雀文档大屏适配背后的设计思考
 Tags: 自适应
-Summary: Short version for index and feeds
 
-This is the content of my super blog post.
-
-## 你好呀
+G2Plot 是一个开箱即用、易于配置、体验优雅的统计图表库，致力于帮助用户以最小成本生成高质量统计图表。 G2Plot 最初诞生于阿里经济体 BI 产品真实场景的业务诉求。动态、高度不确定是 BI 产品和中台系统业务数据的一个普遍特征，而这种特…

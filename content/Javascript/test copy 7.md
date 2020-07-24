@@ -1,7 +1,4 @@
 Title: Remax - 使用 React 开发小程序
 Tags: react
-Summary: Short version for index and feeds
 
-This is the content of my super blog post.
-
-## 你好呀
+今年的工作日不太一样，没有地铁里的人挤人，也没有车水马龙的早高峰。 2020年，在一个不用走亲戚的春节后，我们迎来了一个不用到公司的工作日。 前几天，我们和大家分享了 「阿里巴巴语雀团队在家办公的一天」 ，实际上，在近几天的亲身实…

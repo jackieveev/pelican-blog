@@ -1,7 +1,4 @@
 Title: 让价值被发现：如何在 B 端做增长
 Tags: 增长
-Summary: Short version for index and feeds
 
-This is the content of my super blog post.
-
-## 你好呀
+号外！号外！一年一度的蚂蚁金服体验技术部校招实习生开营啦！前端岗、设计岗、图形岗，通通都有！想要加入西湖区（日耳又）强的前端、设计团队吗？想要和众多大牛一起学习工作吗？赶快投递简历吧，afx-talent@cloud.alipay.com [图片]
