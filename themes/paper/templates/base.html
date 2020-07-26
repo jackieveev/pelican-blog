@@ -10,7 +10,13 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-    <header></header>
+    <header>
+        <nav>
+            {% for cat, null in categories %}
+                <a {% if cat == category %} class="active-category"{% endif %} href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+            {% endfor %}
+        </nav>
+    </header>
     <main>
         <div class="main-wrapper">
             {% block main %}{% endblock %}

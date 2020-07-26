@@ -90,6 +90,10 @@ article.top-article {
     flex: 0 0 666px;
 }
 
+article .article-title a {
+    color: #333;
+}
+
 article .auth-create-time strong {
     margin-right: 10px;
     color: #444;
@@ -104,6 +108,9 @@ article .article-summary {
     height: 52px;
     font-size: 14px;
     line-height: 26px;
+    cursor: pointer;
+    color: #444;
+    display: block;
 }
 
 article.top-article .article-summary {
@@ -141,7 +148,8 @@ article.top-article .article-summary {
 }
 
 .goto-article {
-    margin-left: 10px;
+    padding-left: 10px;
+    color: #07c160;
 }
 
 .goto-article .iconfont {
@@ -152,6 +160,10 @@ article.top-article .article-summary {
     margin-top: 15px;
     display: flex;
     align-items: center;
+}
+
+.recent-article .article-operation {
+    font-size: .92em;
 }
 
 .article-operation .article-view {

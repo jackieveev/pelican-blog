@@ -10,7 +10,9 @@
                     最新文章
                 </h3>
                 <div class="article-title-wrapper">
-                    <h2 class="article-title ellipsis-text">{{ articles_page.object_list[0].title }}</h2>
+                    <h2 class="article-title ellipsis-text">
+                        <a href="{{ SITEURL }}/{{ articles_page.object_list[0].url }}">{{ articles_page.object_list[0].title }}</a>
+                    </h2>
                     <div class="auth-create-time">
                         <strong>{{ articles_page.object_list[0].author }}</strong>
                         <span>{{ articles_page.object_list[0].human_read_date }}</span>
@@ -24,9 +26,9 @@
                         {% endfor %}
                     </div>
                 {% endif %}
-                <div class="article-summary">
-                    {{ articles_page.object_list[0]._summary[:230] }}…<a href="" class="goto-article">阅读全文<i class="iconfont arrowright"></i></a>
-                </div>
+                <a href="{{ SITEURL }}/{{ articles_page.object_list[0].url }}" class="article-summary">
+                    {{ articles_page.object_list[0]._summary[:230] }}… <span class="goto-article">阅读全文<i class="iconfont arrowright"></i></span>
+                </a>
                 <div class="article-operation">
                     <div class="article-view hint-text">
                         阅读87k次
@@ -51,14 +53,16 @@
             {% endif %}
             {% for article in articles_page.object_list[1 if show_top_article else 0:] %}
                 <article>
-                    <h3 class="article-title ellipsis-text">{{ article.title }}</h3>
+                    <h3 class="article-title ellipsis-text">
+                        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                    </h3>
                     <div class="auth-create-time">
                         <strong>{{ article.author }}</strong>
                         <span>发布于{{ article.human_read_date }}</span>
                     </div>
-                    <div class="article-summary">
+                    <a href="{{ SITEURL }}/{{ article.url }}" class="article-summary">
                         {{ article._summary[:160] }}
-                    </div>
+                    </a>
                     <div class="article-operation">
                         {% if article.tags %}
                             <div class="article-info-tags">
