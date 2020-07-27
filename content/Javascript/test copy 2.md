@@ -1,3 +1,4 @@
+Slug: 5762899803d54595aca6b1cb90b92f86
 Title: AVA/CKB：一次性解决图表命名问题
 Tags: 图表, AVA
 

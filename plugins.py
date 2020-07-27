@@ -2,6 +2,7 @@ from pelican import signals
 from pelican.contents import Article
 import uuid, json, pathlib, datetime
 from bs4 import BeautifulSoup
+import os, sys
 
 map = {'articles': []}
 
@@ -23,12 +24,9 @@ def add_article_uuid(content):
     record = next((x for x in map['articles'] if x['slug'] == content.slug), None)
     if (record is not None):
         index = map['articles'].index(record)
-        article['uuid'] = record['uuid']
         map['articles'][index] = article
     else:
-        article['uuid'] = uuid.uuid4().hex
         map['articles'].append(article)
-    content.slug = article['uuid']
 
 def finalized(wasted):
     with open('map.json', 'w', encoding='utf8') as file:
@@ -36,8 +34,8 @@ def finalized(wasted):
 
 def add_summary(content):
     if (isinstance(content, Article)):
-        content._summary = BeautifulSoup(content.content, 'html.parser').text.replace('\n', ' ') * 2
-        content.title = content.title * 2
+        content._summary = BeautifulSoup(content._content, 'html.parser').text.replace('\n', ' ')
+        content.title = content.title
 
 def add_info_handler(content):
     if (isinstance(content, Article)):
@@ -57,8 +55,24 @@ def add_info_handler(content):
         else:
             human_read_date = '{0}年前'.format(now.year - date.year)
         content.human_read_date = human_read_date
-        
+
+def add_uuid_slug(pelican):
+    for root, dirs, files in os.walk(pelican.path):
+        for file in files:
+            if (file.endswith('.md')):
+                with open(os.path.join(root, file), 'r+') as f:
+                    data = f.readlines()
+                    for line in data:
+                        if line == '\n':
+                            f.seek(0)
+                            data.insert(0, 'Slug: {}\n'.format(uuid.uuid4().hex))
+                            f.writelines(data)
+                            break
+                        if line.startswith('Slug:'):
+                            break
+
 def register():
+    signals.initialized.connect(add_uuid_slug)
     signals.content_object_init.connect(add_article_uuid)
     signals.content_object_init.connect(add_summary)
     signals.content_object_init.connect(add_info_handler)

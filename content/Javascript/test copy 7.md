@@ -1,3 +1,4 @@
+Slug: 2c52aff0896e4e3084f87d40d0748fec
 Title: Remax - 使用 React 开发小程序
 Tags: react
 

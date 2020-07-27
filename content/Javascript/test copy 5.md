@@ -1,3 +1,4 @@
+Slug: 154d99e489fa4cb5ab1b0bd106153e7f
 Title: AntV/G2Plot 开源 - 精雕细琢，打造极致可视化图表体验
 Tags: antv
 
