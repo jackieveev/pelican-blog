@@ -11,7 +11,6 @@ html, body {
 }
 
 header {
-    height: 84px;
     width: 100%;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, .05);
@@ -21,16 +20,116 @@ header {
     z-index: 1;
 }
 
+header .nav-wrapper {
+    width: 866px;
+    margin: 0 auto;
+}
+
+header nav {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+}
+
+header nav a {
+    display: inline-block;
+    padding: 0 20px;
+    color: #333;
+    position: relative;
+}
+
+header nav a.current-category {
+    color: #07c160;
+}
+
+header nav a.current-category::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: #07c160;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+header .my-profile {
+    padding: 20px 0;
+    clear: both;
+    overflow: hidden;
+}
+
+header .my-profile .my-avatar {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    vertical-align: top;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    transition: .1s ease-in;
+    cursor: pointer;
+    position: relative;
+}
+
+header .my-profile .my-avatar:hover {
+    border-color: #eee;
+    padding: 5px;
+}
+
+header .my-profile .my-info {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 20px;
+}
+
+header .my-profile .my-slogan {
+    color: #777;
+    margin-top: 5px;
+}
+
+header .my-profile .my-social-media {
+    float: right;
+    margin-top: 20px;
+}
+
+footer {
+}
+
+/* header .my-profile .my-social-media .iconfont {
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.iconfont.weixin {
+    color: #3DAE38;
+}
+
+.iconfont.github {
+    color: #000000;
+} */
+
 main {
-    padding-top: 84px;
+    padding-top: 150px;
     width: 866px;
     margin: 0 auto;
 }
 
 footer {
-    height: 200px;
     width: 866px;
     margin: 0 auto;
+    padding: 30px 0 20px 0;
+    margin-top: 50px;
+    border-top: 1px solid #ccc;
+}
+
+footer .record-info .record-num {
+    /* margin-left: 10px; */
+    margin: 15px 0;
+}
+
+footer .record-info .qrcode {
+    height: 200px;
 }
 
 a {

@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
     <link rel="stylesheet" href="https://yarnpkg.com/en/package/normalize.css">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1964191_zw4zyfctbx.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1964191_k70wvd2rkm.css">
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}">
     {% block head %}{% endblock %}
 </head>
 <body>
     <header>
-        <nav>
-            {% for cat, null in categories %}
-                <a {% if cat == category %} class="active-category"{% endif %} href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
-            {% endfor %}
-        </nav>
+        <div class="nav-wrapper">
+            <div class="my-profile">
+                <img class="my-avatar" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595932617734&di=9da85905db59cf13f6d335ba280310b2&imgtype=0&src=http%3A%2F%2Fbbsimg.res.flyme.cn%2Fforum%2F201512%2F17%2F014758mlw1j471jvh47ng7.png"/>
+                <div class="my-info">
+                    <div>web前端 / 可视化 / 爬虫 / 生活</div>
+                    <div class="my-slogan">命数如织，当为磐石</div>
+                </div>
+                <!-- <div class="my-social-media">
+                    <i title="微信" class="iconfont weixin"></i>
+                    <i title="微博" class="iconfont weibo"></i>
+                    <i title="github" class="iconfont github"></i>
+                </div> -->
+            </div>
+            <nav>
+                <a {% if page_name == 'index' %} class="current-category"{% endif %} href="{{ SITEURL }}/">全部</a>
+                {% for cat, null in categories %}
+                    <a {% if cat == category %} class="current-category"{% endif %} href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+                {% endfor %}
+            </nav>
+        </div>
     </header>
     <main>
         <div class="main-wrapper">
@@ -23,7 +38,19 @@
         </div>
     </main>
     <footer>
-
+        <div class="record-info">
+            <div>
+                Copyright© 2020 Guo Liangcai
+            </div>
+            <div class="record-num">
+                <a href="">沪ICP备19036335号</a>
+            </div>
+            <img class="qrcode" src="https://static.docschina.org/docschina-qr1.jpeg" alt="">
+        </div>
+        <div class="footer-content">
+            
+        </div>
     </footer>
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/base.js"></script>
 </body>
 </html>
