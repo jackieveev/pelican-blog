@@ -13,22 +13,19 @@ html, body {
 header {
     width: 100%;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .05);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-header .nav-wrapper {
-    width: 866px;
-    margin: 0 auto;
 }
 
 header nav {
     height: 50px;
     line-height: 50px;
     font-size: 16px;
+    width: 100%;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-bottom: 1px solid #f0f2f3;
+    box-sizing: border-box;
 }
 
 header nav a {
@@ -55,8 +52,8 @@ header nav a.current-category::after {
 
 header .my-profile {
     padding: 20px 0;
-    clear: both;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 header .my-profile .my-avatar {
@@ -88,12 +85,8 @@ header .my-profile .my-slogan {
     margin-top: 5px;
 }
 
-header .my-profile .my-social-media {
-    float: right;
-    margin-top: 20px;
-}
-
-footer {
+header .my-profile .my-profile-right {
+    margin-left: auto;
 }
 
 /* header .my-profile .my-social-media .iconfont {
@@ -109,27 +102,50 @@ footer {
     color: #000000;
 } */
 
-main {
-    padding-top: 150px;
-    width: 866px;
-    margin: 0 auto;
-}
-
 footer {
-    width: 866px;
-    margin: 0 auto;
     padding: 30px 0 20px 0;
     margin-top: 50px;
     border-top: 1px solid #ccc;
 }
 
+footer .record-info {
+    display: inline-block;
+}
+
 footer .record-info .record-num {
-    /* margin-left: 10px; */
     margin: 15px 0;
 }
 
 footer .record-info .qrcode {
-    height: 200px;
+    height: 120px;
+}
+
+footer .footer-content {
+    display: inline-block;
+    vertical-align: top;
+}
+
+footer .link-wrapper {
+    display: inline-block;
+    vertical-align: top;
+}
+
+footer .link-wrapper a {
+    color: #333;
+}
+
+footer .link-wrapper a:hover {
+    color: #07c160;
+}
+
+footer .footer-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #666;
+}
+
+footer .iconfont {
+    vertical-align: middle;
 }
 
 a {
@@ -154,6 +170,11 @@ input.mini {
 }
 
 /* COMMON */
+.center-content {
+    width: 866px;
+    margin: 0 auto;
+}
+
 .hint-text {
     color: #999;
 }
@@ -162,6 +183,22 @@ input.mini {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.ml50 {
+    margin-left: 50px;
+}
+
+.mr25 {
+    margin-right: 25px;
 }
 
 /* PAGE INDEX */
@@ -212,14 +249,53 @@ article .article-summary {
     display: block;
 }
 
-article.top-article .article-summary {
-    height: 104px;
-    font-size: 15px;
-    line-height: 26px;
+article .article-thumb-image {
+    object-fit: cover; 
+    overflow: hidden;
+    height: 200px;
+    width: 100%;
+    border-radius: 4px;
+    vertical-align: top;
 }
 
-.top-article .article-info-tags {
+article .article-thumb-image:hover {
+    box-shadow: 0 0 0 3px rgba(7, 193, 96, .2);
+}
+
+article .article-summary {
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    height: 52px;
+    font-size: 14px;
+    line-height: 26px;
+    color: #444;
+}
+
+article .article-info-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+article .article-info-wrapper .article-thumb-image {
+    height: 90px;
+    width: 145px;
+    flex: 0 0 145px;
+}
+
+article.top-article .article-summary {
+    height: 52px;
+    font-size: 15px;
+    line-height: 26px;
+    margin-top: 15px;
+}
+
+.top-article .article-info-cate-tags {
     margin-bottom: 15px;
+}
+
+article .category-link {
+    margin-right: 15px;
 }
 
 .recent-article {
@@ -243,7 +319,7 @@ article.top-article .article-summary {
 }
 
 .recent-article article .auth-create-time {
-    margin: 10px 0;
+    margin-bottom: 15px;
 }
 
 .goto-article {
@@ -262,7 +338,7 @@ article.top-article .article-summary {
 }
 
 .recent-article .article-operation {
-    font-size: .92em;
+    /* font-size: .92em; */
 }
 
 .article-operation .article-view {
@@ -315,12 +391,11 @@ article .article-operation .operation-upvote {
     color: #07c160;
 }
 
-.article-operation .article-info-tags {
+.article-operation .article-info-cate-tags {
     margin-right: auto;
 }
 
 .article-paginator {
-    /* text-align: center; */
     margin-top: 20px;
 }
 

@@ -18,16 +18,23 @@
                         <span>{{ articles_page.object_list[0].human_read_date }}</span>
                     </div>
                 </div>
-                {% if articles_page.object_list[0].tags %}
-                    <div class="article-info-tags">
+                <div class="article-info-cate-tags">
+                    分类：
+                    <a href="{{ SITEURL }}/{{ articles_page.object_list[0].category.url }}" class="category-link">{{ articles_page.object_list[0].category }}</a>
+                    {% if articles_page.object_list[0].tags %}
                         标签：
                         {% for tag in articles_page.object_list[0].tags %}
                             <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
                         {% endfor %}
-                    </div>
+                    {% endif %}
+                </div>
+                {% if articles_page.object_list[0].thumb_image %}
+                    <a href="{{ SITEURL }}/{{ articles_page.object_list[0].url }}">
+                        {{ articles_page.object_list[0].thumb_image }}
+                    </a>
                 {% endif %}
                 <a href="{{ SITEURL }}/{{ articles_page.object_list[0].url }}" class="article-summary">
-                    {{ articles_page.object_list[0]._summary[:230] }}… <span class="goto-article">阅读全文<i class="iconfont arrowright"></i></span>
+                    {{ articles_page.object_list[0]._summary[:100] }}… <span class="goto-article">阅读全文<i class="iconfont arrowright"></i></span>
                 </a>
                 <div class="article-operation">
                     <div class="article-view hint-text">
@@ -56,16 +63,27 @@
                     <h3 class="article-title ellipsis-text">
                         <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
                     </h3>
-                    <div class="auth-create-time">
-                        <strong>{{ article.author }}</strong>
-                        <span>发布于{{ article.human_read_date }}</span>
+                    <div class="article-info-wrapper mt20">
+                        {% if article.thumb_image %}
+                            <a href="{{ SITEURL }}/{{ article.url }}">
+                                {{ article.thumb_image }}
+                            </a>
+                        {% endif %}
+                        <div class="article-info-right">
+                            <div class="auth-create-time">
+                                <strong>{{ article.author }}</strong>
+                                <span>发布于{{ article.human_read_date }}</span>
+                            </div>
+                            <a href="{{ SITEURL }}/{{ article.url }}" class="article-summary">
+                                {{ article._summary[:160] }}
+                            </a>
+                        </div>
                     </div>
-                    <a href="{{ SITEURL }}/{{ article.url }}" class="article-summary">
-                        {{ article._summary[:160] }}
-                    </a>
                     <div class="article-operation">
                         {% if article.tags %}
-                            <div class="article-info-tags">
+                            <div class="article-info-cate-tags">
+                                分类：
+                                <a href="{{ SITEURL }}/{{ article.category.url }}" class="category-link">{{ article.category }}</a>
                                 标签：
                                 {% for tag in article.tags %}
                                     <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>

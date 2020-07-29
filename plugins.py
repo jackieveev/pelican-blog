@@ -34,7 +34,12 @@ def finalized(wasted):
 
 def add_summary(content):
     if (isinstance(content, Article)):
-        content._summary = BeautifulSoup(content._content, 'html.parser').text.replace('\n', ' ')
+        html = BeautifulSoup(content._content, 'html.parser')
+        content._summary = html.text.replace('\n', ' ')
+        img = html.find('img')
+        if img:
+            img['class'] = 'article-thumb-image mr25'
+        content.thumb_image = img
         content.title = content.title
 
 def add_info_handler(content):

@@ -1,11 +1,11 @@
 (function () {
     window.addEventListener('scroll', function (ev) {
-        var visible = true
-        if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0) {
-            visible = false
+        var fixedNav = false
+        if ((window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0) > 100) {
+            fixedNav = true
         }
-        document.querySelector('.my-profile').style.display = visible ? 'block' : 'none'
-        document.querySelector('main').style['padding-top'] = visible ? '150px' : '50px'
+        document.querySelector('nav').style.position = fixedNav ? 'fixed' : 'static'
+        document.querySelector('main').style['padding-top'] = fixedNav ? '50px' : '0'
     })
     var pager = document.querySelector('.paginator-input')
     pager && pager.addEventListener('keypress', function (ev) {

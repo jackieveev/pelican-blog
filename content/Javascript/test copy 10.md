@@ -8,3 +8,5 @@ Tags: 语雀
 
     #!python
     print('123')
+
+![测试一哈](https://pic3.zhimg.com/v2-aac70722726caa4865185d50c4a799a9_400x224.jpg "这是一个图片")
