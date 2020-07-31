@@ -6,7 +6,7 @@
     {% if articles %}
         {% set show_top_article = page_name == 'index' and not articles_previous_page %}
         {% if show_top_article %}
-            <article class="top-article">
+            <article class="top-article panel-shadow">
                 <h3 class="article-panel-header">
                     最新文章
                 </h3>
@@ -53,7 +53,7 @@
                 </div>
             </article>
         {% endif %}
-        <div class="recent-article">
+        <div class="recent-article panel-shadow">
             {% if show_top_article %}
                 <h3 class="article-panel-header">
                     文章列表
@@ -120,4 +120,7 @@
             {% endif %}
         </div>
     {% endif %}
+{% endblock %}
+{% block footer %}
+    {% include 'footer.html' %}
 {% endblock %}

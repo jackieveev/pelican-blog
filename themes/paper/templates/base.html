@@ -31,55 +31,9 @@
         </nav>
     </header>
     <main class="center-content">
-        <div class="main-wrapper">
-            {% block main %}{% endblock %}
-        </div>
+        {% block main %}{% endblock %}
     </main>
-    <footer class="center-content">
-        <div class="footer-content">
-            <div class="link-wrapper">
-                <div class="friend-links">
-                    <div class="footer-title">友情链接</div>
-                    <section>
-                        <p><a target="_blank" href="">阮一峰的网络日志</a></p>
-                        <p><a target="_blank" href="">张鑫旭</a></p>
-                        <p><a target="_blank" href="">前端之巅</a></p>
-                        <p><a target="_blank" href="">窝窝</a></p>
-                    </section>
-                </div>
-            </div>
-            <div class="link-wrapper ml50">
-                <div class="other-links">
-                    <div class="footer-title">神奇的网站</div>
-                    <section>
-                        <p><a target="_blank" href="">Tiny PNG</a></p>
-                        <p><a target="_blank" href="">码农周刊</a></p>
-                    </section>
-                </div>
-            </div>
-            <div class="link-wrapper ml50">
-                <div class="site-feedback">
-                    <div class="footer-title">与我联系</div>
-                    <section>
-                        <p><a href="">意见反馈</a></p>
-                        <p>mail: jackieveev@gmail.com</p>
-                        <p>微博：stupid_jakeeee</p>
-                        <p>Proudly powered by <a target="_blank" href="https://github.com/getpelican/pelican"><i class="iconfont github"></i> pelican</a></p>
-                        <p>Theme created by Guo Liangcai <a target="_blank" href="https://github.com/jackieveev/pelican-blog"><i class="iconfont github"></i> paper</a></p>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <div class="record-info ml50">
-            <div>
-                Copyright© 2020 Guo Liangcai
-            </div>
-            <div class="record-num">
-                <a href="">沪ICP备19036335号</a>
-            </div>
-            <img class="qrcode" src="https://static.docschina.org/docschina-qr1.jpeg" alt="">
-        </div>
-    </footer>
+    {% block footer %}{% endblock %}
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/main.js"></script>
 </body>
 </html>

@@ -5,15 +5,11 @@ html, body {
     margin: 0;
     padding: 0;
     font-size: 14px;
-    line-height: 24px;
     color: #333;
+    line-height: 1.5;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
                 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
                 'Noto Color Emoji';
-}
-
-.hll {
-background-color:#eee;
 }
 
 header {
@@ -95,50 +91,49 @@ header .my-profile .my-profile-right {
     margin-left: auto;
 }
 
+main.center-content {
+    margin: 20px auto;
+    overflow: hidden;
+}
+
 footer {
-    padding: 30px 0 20px 0;
-    margin-top: 50px;
-    border-top: 1px solid #ccc;
+    padding-bottom: 10px;
+    font-size: 13px;
+    color: #888;
 }
 
-footer .record-info {
-    display: inline-block;
+footer a {
+    color: #888;
 }
 
-footer .record-info .record-num {
-    margin: 15px 0;
-}
-
-footer .record-info .qrcode {
-    height: 120px;
-}
-
-footer .footer-content {
-    display: inline-block;
-    vertical-align: top;
-}
-
-footer .link-wrapper {
-    display: inline-block;
-    vertical-align: top;
-}
-
-footer .link-wrapper a {
-    color: #333;
-}
-
-footer .link-wrapper a:hover {
+footer a:hover {
     color: #08b258;
 }
 
-footer .footer-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: #666;
+footer .footer-content-wrapper {
+    background-color: #fff;
+    width: 960px;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
-footer .iconfont {
+footer .site-links span {
+    margin-left: 20px;
+}
+
+footer .site-record-info {
+    margin: 2px 0;
+}
+
+footer .site-record-info img {
     vertical-align: middle;
+    margin: 0 3px;
+}
+
+footer .site-record-info,
+footer .other-info {
+    color: #adadad;
+    font-size: 12px;
 }
 
 a {
@@ -164,7 +159,7 @@ input.mini {
 
 /* COMMON */
 .center-content {
-    width: 866px;
+    width: 960px;
     margin: 0 auto;
 }
 
@@ -182,6 +177,7 @@ input.mini {
     margin-top: 30px;
 }
 
+
 .mt20 {
     margin-top: 20px;
 }
@@ -192,4 +188,8 @@ input.mini {
 
 .mr25 {
     margin-right: 25px;
+}
+
+.panel-shadow {
+    box-shadow: 0 0 3px rgba(0, 0, 0, .1);
 }

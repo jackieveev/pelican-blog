@@ -3,10 +3,8 @@
 <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/article.css">
 {% endblock %}
 {% block main %}
-    <div id="article-wrapper">
-        <div class="article-catelog">
-        </div>
-        <article id="article-content">
+    <div id="article-content-wrapper">
+        <article id="article-content" class="panel-shadow">
             <h1 class="article-title">
                 <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
                 title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
@@ -23,7 +21,13 @@
                     {% endfor %}
                 {% endif %}
             </div>
-            {{ article.content }}
+            {{ article.content_with_anchors }}
         </article>
+        <div id="article-catelog" class="panel-shadow">
+            <h4>▶ 文章目录：</h4>
+            {% for anchor in article.anchors %}
+                {{ anchor }}
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

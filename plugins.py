@@ -35,7 +35,23 @@ def finalized(wasted):
 def add_summary(content):
     if (isinstance(content, Article)):
         html = BeautifulSoup(content._content, 'html.parser')
+        # 锚点
+        new_content = BeautifulSoup(content._content, 'html.parser')
+        anchors = html.find_all(['h1', 'h2'])
+        h2_titles = new_content.find_all(['h1', 'h2'])
+        for index, item in enumerate(anchors):
+            item.name = 'a'
+            link = 'article-anchor-{}'.format(index)
+            item['href'] = '#{}'.format(link)
+            tag = BeautifulSoup('<a></a>', 'html.parser')
+            tag['name'] = link
+            print(h2_titles[index].children[0])
+            h2_titles[index].insert_before(tag)
+        content.anchors = anchors
+        content.content_with_anchors = str(new_content)
+        # 概述
         content._summary = html.text.replace('\n', ' ')
+        # 首图
         img = html.find('img')
         if img:
             img['class'] = 'article-thumb-image mr25'

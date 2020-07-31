@@ -2,8 +2,7 @@
 article.top-article {
     padding: 18px 25px;
     background-color: #fff;
-    margin-top: 20px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, .05);
+    margin-bottom: 20px;
 }
 
 .article-panel-header {
@@ -53,9 +52,9 @@ article .article-summary {
     cursor: pointer;
     display: block;
     overflow: hidden;
-    height: 52px;
+    height: 48px;
     font-size: 15px;
-    line-height: 26px;
+    line-height: 24px;
     color: #444;
 }
 
@@ -88,8 +87,6 @@ article .category-link {
 .recent-article {
     padding: 18px 25px;
     background-color: #fff;
-    margin: 20px 0;
-    box-shadow: 0 0 3px rgba(0, 0, 0, .05);
 }
 
 .recent-article article {
