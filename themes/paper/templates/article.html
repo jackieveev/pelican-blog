@@ -24,10 +24,12 @@
             {{ article.content_with_anchors }}
         </article>
         <div id="article-catelog" class="panel-shadow">
-            <h4>▶ 文章目录：</h4>
-            {% for anchor in article.anchors %}
-                {{ anchor }}
-            {% endfor %}
+            <div id="catelog">
+                <h4>▶ 文章目录：</h4>
+                {% for anchor in article.anchors %}
+                    {{ anchor }}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

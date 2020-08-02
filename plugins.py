@@ -43,10 +43,9 @@ def add_summary(content):
             item.name = 'a'
             link = 'article-anchor-{}'.format(index)
             item['href'] = '#{}'.format(link)
-            tag = BeautifulSoup('<a></a>', 'html.parser')
-            tag['name'] = link
-            print(h2_titles[index].children[0])
-            h2_titles[index].insert_before(tag)
+            tag = BeautifulSoup('<a class="article-anchor"></a>', 'html.parser')
+            tag.a['id'] = link
+            h2_titles[index].append(tag)
         content.anchors = anchors
         content.content_with_anchors = str(new_content)
         # 概述
@@ -81,7 +80,7 @@ def add_uuid_slug(pelican):
     for root, dirs, files in os.walk(pelican.path):
         for file in files:
             if (file.endswith('.md')):
-                with open(os.path.join(root, file), 'r+') as f:
+                with open(os.path.join(root, file), 'r+', encoding='utf8') as f:
                     data = f.readlines()
                     for line in data:
                         if line == '\n':

@@ -1,5 +1,4 @@
 (function () {
-    var catelogLeft
     window.addEventListener('scroll', function (ev) {
         var fixedNav = false,
             fixedCatelog = false,
@@ -10,12 +9,8 @@
         }
         document.querySelector('nav').style.position = fixedNav ? 'fixed' : 'static'
         document.querySelector('main').style['padding-top'] = fixedNav ? '50px' : '0'
-        var articleCatelog = document.querySelector('#article-catelog')
+        var articleCatelog = document.querySelector('#catelog')
         if (articleCatelog) {
-            if (catelogLeft === undefined) {
-                catelogLeft = articleCatelog.getBoundingClientRect().left - 15
-                articleCatelog.style.left = catelogLeft + 'px'
-            }
             articleCatelog.style.position = fixedCatelog ? 'fixed' : 'static'
         }
     })
