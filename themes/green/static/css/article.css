@@ -3,32 +3,31 @@
     align-items: flex-start;
 }
 
-#article-catelog {
-    flex: 0 0 240px;
-    width: 240px;
+#article-right {
+    flex: 0 0 210px;
+    width: 210px;
     margin-left: 15px;
 }
 
-#article-catelog #catelog {
+#article-right #catelog {
     overflow: hidden;
     box-sizing: border-box;
     padding: 15px 20px;
     top: 70px;
     background-color: #fff;
-    width: 240px;
+    width: 210px;
 }
 
-#article-catelog h4 {
+#article-right h4 {
     margin: 0 0 10px 0;
 }
 
-#article-catelog a {
-    display: block;
+#catelog div {
     margin-top: 5px;
 }
 
 #article-content {
-    flex: 0 0 705px;
+    flex: 0 0 735px;
     box-sizing: border-box;
     background-color: #fff;
     padding: 10px 30px;

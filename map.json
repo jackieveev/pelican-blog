@@ -2,25 +2,25 @@
     "articles": [
         {
             "title": "babel 升级到7.X采坑总结😂dd",
-            "category": "Javascript",
+            "category": "JAVASCRIPT",
             "slug": "69e85b2bb4094ba985a2e6ee8153ad31",
             "filename": "test.md"
         },
         {
             "title": "解放图形化设计生产力 - HiTu",
-            "category": "Javascript",
+            "category": "JAVASCRIPT",
             "slug": "161e2db5b28e4ed6ae7af1d4536c8b48",
             "filename": "test copy 6.md"
         },
         {
             "title": "AVA/CKB：一次性解决图表命名问题",
-            "category": "Javascript",
+            "category": "JAVASCRIPT",
             "slug": "5762899803d54595aca6b1cb90b92f86",
             "filename": "test copy 2.md"
         },
         {
             "title": "AntV/G2Plot 开源 - 精雕细琢，打造极致可视化图表体验",
-            "category": "Javascript",
+            "category": "JAVASCRIPT",
             "slug": "154d99e489fa4cb5ab1b0bd106153e7f",
             "filename": "test copy 5.md"
         },
@@ -32,19 +32,19 @@
         },
         {
             "title": "Remax - 使用 React 开发小程序",
-            "category": "Javascript",
+            "category": "JAVASCRIPT",
             "slug": "2c52aff0896e4e3084f87d40d0748fec",
             "filename": "test copy 7.md"
         },
         {
             "title": "ProcessOn x 语雀，刚见面就合拍，是遇见了对的人",
-            "category": "Javascript",
+            "category": "JAVASCRIPT",
             "slug": "11d2da99eb604d5cb0a158c329a2e701",
             "filename": "test copy 10.md"
         },
         {
             "title": "Ant Design 4.0 ，脱离业务的框架都是耍流氓",
-            "category": "Javascript",
+            "category": "JAVASCRIPT",
             "slug": "47b0947eeb5c4a5b8778be521b0e85e4",
             "filename": "test copy 3.md"
         },
@@ -56,7 +56,7 @@
         },
         {
             "title": "让价值被发现：如何在 B 端做增长",
-            "category": "Javascript",
+            "category": "JAVASCRIPT",
             "slug": "bb2e928e7d174410a54ba8cf79a5a78c",
             "filename": "test copy 4.md"
         },
@@ -68,13 +68,13 @@
         },
         {
             "title": "babel 智能可视化——数据分析领域的金手指",
-            "category": "Javascript",
+            "category": "JAVASCRIPT",
             "slug": "c8ff556105a64adb94b5c26d48132043",
             "filename": "test copy 9.md"
         },
         {
             "title": "阿里巴巴语雀文档大屏适配背后的设计思考",
-            "category": "Javascript",
+            "category": "JAVASCRIPT",
             "slug": "a68e4682c1464b2abfc7552b82acf406",
             "filename": "test copy.md"
         },
@@ -86,9 +86,15 @@
         },
         {
             "title": "蚂蚁金服 Web 3D 技术探索之路 - SEE Conf",
-            "category": "Javascript",
+            "category": "JAVASCRIPT",
             "slug": "99fead1d3d4742209d19907cb15f787c",
             "filename": "test copy 8.md"
+        },
+        {
+            "title": "支持离线编辑，语雀桌面客户端灵巧上线",
+            "category": "生活杂谈",
+            "slug": "6fc69770391c4de9a6eecdccf1127c75",
+            "filename": "one.md"
         }
     ]
 }

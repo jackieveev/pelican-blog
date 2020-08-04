@@ -1,126 +1,77 @@
 {% extends "base.html" %}
 {% block head %}
-<link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/index.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/index.css">
 {% endblock %}
 {% block main %}
-    {% if articles %}
-        {% set show_top_article = page_name == 'index' and not articles_previous_page %}
-        {% if show_top_article %}
-            <article class="top-article panel-shadow">
-                <h3 class="article-panel-header">
-                    最新文章
-                </h3>
-                <div class="article-title-wrapper">
-                    <h2 class="article-title ellipsis-text">
-                        <a href="{{ SITEURL }}/{{ articles_page.object_list[0].url }}">{{ articles_page.object_list[0].title }}</a>
-                    </h2>
-                    <div class="auth-create-time">
-                        <strong>{{ articles_page.object_list[0].author }}</strong>
-                        <span>{{ articles_page.object_list[0].human_read_date }}</span>
-                    </div>
-                </div>
-                <div class="article-info-cate-tags">
-                    分类：
-                    <a href="{{ SITEURL }}/{{ articles_page.object_list[0].category.url }}" class="category-link">{{ articles_page.object_list[0].category }}</a>
-                    {% if articles_page.object_list[0].tags %}
-                        标签：
-                        {% for tag in articles_page.object_list[0].tags %}
-                            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-                        {% endfor %}
-                    {% endif %}
-                </div>
-                {% if articles_page.object_list[0].thumb_image %}
-                    <a href="{{ SITEURL }}/{{ articles_page.object_list[0].url }}">
-                        {{ articles_page.object_list[0].thumb_image }}
-                    </a>
-                {% endif %}
-                <a href="{{ SITEURL }}/{{ articles_page.object_list[0].url }}" class="article-summary">
-                    {{ articles_page.object_list[0]._summary[:100] }}… <span class="goto-article">阅读全文<i class="iconfont arrowright"></i></span>
-                </a>
-                <div class="article-operation">
-                    <div class="article-view hint-text">
-                        阅读87k次
-                    </div>
-                    <div class="operation-upvote">
-                        点赞8654<i class="iconfont heart"></i>
-                    </div>
-                    <a class="operation-share other-operation">
-                        分享
-                    </a>
-                    <a class="operation-comment other-operation">
-                        评论24条
-                    </a>
-                </div>
-            </article>
-        {% endif %}
-        <div class="recent-article panel-shadow">
-            {% if show_top_article %}
-                <h3 class="article-panel-header">
-                    文章列表
-                </h3>
-            {% endif %}
-            {% for article in articles_page.object_list[1 if show_top_article else 0:] %}
-                <article>
-                    <h3 class="article-title ellipsis-text">
-                        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-                    </h3>
-                    <div class="article-info-wrapper mt20">
-                        {% if article.thumb_image %}
-                            <a href="{{ SITEURL }}/{{ article.url }}">
-                                {{ article.thumb_image }}
-                            </a>
-                        {% endif %}
-                        <div class="article-info-right">
-                            <div class="auth-create-time">
-                                <strong>{{ article.author }}</strong>
-                                <span>发布于{{ article.human_read_date }}</span>
-                            </div>
-                            <a href="{{ SITEURL }}/{{ article.url }}" class="article-summary">
-                                {{ article._summary[:160] }}
-                            </a>
+    <div id="index-content">
+        <div id="article-list">
+            {% if articles %}
+                {% for article in articles_page.object_list %}
+                    <section>
+                        <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+                        <div class="article-summary">
+                            <a href="{{ SITEURL }}/{{ article.url }}">{{ article._summary[:160] }}…</a>
                         </div>
-                    </div>
-                    <div class="article-operation">
-                        {% if article.tags %}
-                            <div class="article-info-cate-tags">
-                                分类：
-                                <a href="{{ SITEURL }}/{{ article.category.url }}" class="category-link">{{ article.category }}</a>
+                        <div class="article-cate-tags mt-15">
+                            分类：
+                            <a href="{{ SITEURL }}/{{ article.category.url }}" class="tag-item category-link">{{ article.category }}</a>
+                            {% if article.tags %}
                                 标签：
                                 {% for tag in article.tags %}
-                                    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                                    <a href="{{ SITEURL }}/{{ tag.url }}" class="tag-item">{{ tag }}</a>
                                 {% endfor %}
-                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="article-info mt-15">
+                            <span class="mr-20">发布于{{ article.human_read_date }}</span>
+                            <a id="article-vote">
+                                <i class="iconfont up"></i>
+                                98,238个赞
+                            </a>
+                            <a id="article-comment" class="ml-10">
+                                <i class="iconfont comment"></i>
+                                143条评论
+                            </a>
+                        </div>
+                    </section>
+                {% endfor %}
+                {% if articles_page.has_other_pages() %}
+                    <div id="article-paginator" class="mt-30">
+                        共{{ articles_paginator.num_pages }}页
+                        {% if articles_page.has_previous() %}
+                            <a class="article-paginator-jumper" href="{{ SITEURL }}/{{ articles_previous_page.url }}">上一页</a>
                         {% endif %}
-                        <div class="article-view hint-text">
-                            阅读87k次
-                        </div>
-                        <div class="operation-upvote">
-                            点赞8654
-                        </div>
-                        <a class="operation-share other-operation">
-                            分享
-                        </a>
-                        <a class="operation-comment other-operation">
-                            评论24条
-                        </a>
+                        <input class="paginator-input mini ml-10" type="text" value="{{ articles_page.number }}">
+                        {% if articles_page.has_next() %}
+                            <a class="article-paginator-jumper" href="{{ SITEURL }}/{{ articles_next_page.url }}">下一页</a>
+                        {% endif %}
+                        <a class="article-paginator-jumper ml-10" href="#anchor-header">回到顶部 <i class="iconfont up"></i></a>
                     </div>
-                </article>
-            {% endfor %}
-            {% if articles_page.has_other_pages() %}
-                <div class="article-paginator">
-                    <span class="hint-text">共{{ articles_paginator.num_pages }}页</span>
-                    {% if articles_page.has_previous() %}
-                        <a class="article-paginator-jumper" href="{{ SITEURL }}/{{ articles_previous_page.url }}">上一页</a>
-                    {% endif %}
-                    <input class="paginator-input mini" type="text" value="{{ articles_page.number }}">
-                    {% if articles_page.has_next() %}
-                        <a class="article-paginator-jumper" href="{{ SITEURL }}/{{ articles_next_page.url }}">下一页</a>
-                    {% endif %}
-                </div>
+                {% endif %}
             {% endif %}
         </div>
-    {% endif %}
-{% endblock %}
-{% block footer %}
-    {% include 'footer.html' %}
+        <div id="index-content-right">
+            <section id="hot-article-list">
+                <h3>📧 热评文章</h3>
+                <div class="mt-15"><a href="">支持离线编辑，语雀桌面客户端灵巧上线</a></div>
+                <div class="mt-15"><a href="">AVA/CKB：一次性解决图表命名问题</a></div>
+                <div class="mt-15"><a href="">ProcessOn x 语雀，刚见面就合拍，是遇见了对的人</a></div>
+                <div class="mt-15"><a href="">babel 智能可视化——数据分析领域的金手指</a></div>
+                <div class="mt-15"><a href="">解放图形化设计生产力 - HiTu</a></div>
+                <div class="mt-15"><a href="">支持离线编辑，语雀桌面客户端灵巧上线</a></div>
+                <div class="mt-15"><a href="">AVA/CKB：一次性解决图表命名问题</a></div>
+                <div class="mt-15"><a href="">ProcessOn x 语雀，刚见面就合拍，是遇见了对的人</a></div>
+                <div class="mt-15"><a href="">babel 智能可视化——数据分析领域的金手指</a></div>
+                <div class="mt-15"><a href="">解放图形化设计生产力 - HiTu</a></div>
+            </section>
+            <section id="hot-article-list" class="mt-30">
+                <h3>最新评论</h3>
+                <div class="mt-15"><a href="">Sayas 发表在《支持离线编辑，语雀》</a></div>
+                <div class="mt-15"><a href="">你家的海 发表在《babel 智能可视化——数》</a></div>
+                <div class="mt-15"><a href="">深圳南山 发表在《解放图形化设计生产力》</a></div>
+                <div class="mt-15"><a href="">随便的名字 发表在《ProcessOn x 语雀，刚见面》</a></div>
+                <div class="mt-15"><a href="">Jdkdsa 发表在《babel 智能可视化——数据分》</a></div>
+            </section>
+        </div>
+    </div>
 {% endblock %}

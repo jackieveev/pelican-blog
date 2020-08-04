@@ -28,7 +28,7 @@ def add_article_uuid(content):
     else:
         map['articles'].append(article)
 
-def finalized(wasted):
+def finalized(_):
     with open('map.json', 'w', encoding='utf8') as file:
         json.dump(map, file, ensure_ascii=False, indent=4)
 
@@ -60,21 +60,7 @@ def add_summary(content):
 def add_info_handler(content):
     if (isinstance(content, Article)):
         date = datetime.datetime.strptime(content.locale_date, '%Y-%m-%d')
-        now = datetime.datetime.now()
-        human_read_date = ''
-        if date.year == now.year:
-            if date.month == now.month:
-                if date.day == now.day:
-                    human_read_date = '今天'
-                elif now.day - date.day == 1:
-                    human_read_date = '昨天'
-                else:
-                    human_read_date = '{0}天前'.format(now.day - date.day)
-            else:
-                human_read_date = '{0}个月前'.format(now.month - date.month)
-        else:
-            human_read_date = '{0}年前'.format(now.year - date.year)
-        content.human_read_date = human_read_date
+        content.human_read_date = date.strftime('%Y年%m月%d日 %a')
 
 def add_uuid_slug(pelican):
     for root, dirs, files in os.walk(pelican.path):

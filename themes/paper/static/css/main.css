@@ -1,195 +1,86 @@
-@import url("pygment.css");
-
 html, body {
-    background-color: #f0f2f3;
     margin: 0;
     padding: 0;
-    font-size: 14px;
-    color: #333;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    font-family: -apple-system, Segoe UI, "Helvetica Neue", Helvetica, PingFang SC, Arial, Noto Sans, Roboto, Microsoft Yahei, sans-serif;
     line-height: 1.5;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-                'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-                'Noto Color Emoji';
+    color: #333;
+    font-size: 14px;
 }
 
 header {
-    width: 100%;
-    background-color: #fff;
+    border-bottom: 2px solid #333;
 }
 
-header nav {
-    height: 50px;
-    line-height: 50px;
-    font-size: 16px;
-    width: 100%;
-    background-color: #fff;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    border-bottom: 1px solid #f0f2f3;
-    box-sizing: border-box;
-}
-
-header nav a {
-    display: inline-block;
-    padding: 0 20px;
-    color: #333;
-    position: relative;
-}
-
-header nav a.current-category {
-    color: #08b258;
-}
-
-header nav a.current-category::after {
-    content: '';
-    position: absolute;
-    width: 50px;
-    height: 3px;
-    background-color: #08b258;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-header .my-profile {
-    padding: 20px 0;
-    display: flex;
-    align-items: center;
-}
-
-header .my-profile .my-avatar {
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    overflow: hidden;
-    vertical-align: top;
-    box-sizing: border-box;
-    border: 1px solid transparent;
-    transition: .1s ease-in;
-    cursor: pointer;
-    position: relative;
+    line-height: 60px;
+    font-size: 18px;
 }
 
-header .my-profile .my-avatar:hover {
-    border-color: #eee;
-    padding: 5px;
-}
-
-header .my-profile .my-info {
+header nav li {
+    height: 100%;
+    padding: 0 20px;
     display: inline-block;
-    vertical-align: bottom;
-    margin-left: 20px;
 }
 
-header .my-profile .my-slogan {
-    color: #777;
-    margin-top: 5px;
+header nav li.active {
+    font-weight: bold;
 }
 
-header .my-profile .my-profile-right {
-    margin-left: auto;
-}
-
-main.center-content {
-    margin: 20px auto;
-    overflow: hidden;
-}
-
-footer {
-    padding-bottom: 10px;
-    font-size: 13px;
-    color: #888;
-}
-
-footer a {
-    color: #888;
-}
-
-footer a:hover {
-    color: #08b258;
-}
-
-footer .footer-content-wrapper {
-    background-color: #fff;
-    width: 960px;
-    box-sizing: border-box;
-    padding: 20px;
-}
-
-footer .site-links span {
-    margin-left: 20px;
-}
-
-footer .site-record-info {
-    margin: 2px 0;
-}
-
-footer .site-record-info img {
-    vertical-align: middle;
-    margin: 0 3px;
-}
-
-footer .site-record-info,
-footer .other-info {
-    color: #adadad;
-    font-size: 12px;
-}
-
-a {
-    color: #08b258;
+a,
+a:visited {
     text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #1e3a7a;
+}
+
+div {
+    box-sizing: border-box;
 }
 
 input {
     outline: none;
-    border: 1px solid #ccc;
-    border-radius: 2px;
+    border: 1px solid #333;
     padding: 8px 10px;
 }
 
-input:focus {
-    border-color: #08b258;
-    box-shadow: 0 0 0 2px #e1f7eb;
+main {
+    padding: 20px 0;
 }
 
-input.mini {
-    padding: 5px 8px;
-}
-
-/* COMMON */
-.center-content {
-    width: 960px;
+/* COMMON CLASS */
+.main-width-content {
+    width: 1200px;
     margin: 0 auto;
 }
 
-.hint-text {
-    color: #999;
+.ml-10 {
+    margin-left: 10px;
 }
 
-.ellipsis-text {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.mt-15 {
+    margin-top: 15px;
 }
 
-.mt30 {
+.mt-30 {
     margin-top: 30px;
 }
 
-
-.mt20 {
-    margin-top: 20px;
+.mr-20 {
+    margin-right: 20px;
 }
 
-.ml50 {
-    margin-left: 50px;
-}
-
-.mr25 {
-    margin-right: 25px;
-}
-
-.panel-shadow {
-    box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+.tag-item {
+    padding: 2px 8px;
+    background-color: #eee;
+    margin-right: 5px;
 }

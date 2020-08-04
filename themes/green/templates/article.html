@@ -23,11 +23,13 @@
             </div>
             {{ article.content_with_anchors }}
         </article>
-        <div id="article-catelog" class="panel-shadow">
+        <div id="article-right" class="panel-shadow">
             <div id="catelog">
                 <h4>▶ 文章目录：</h4>
                 {% for anchor in article.anchors %}
-                    {{ anchor }}
+                    <div>
+                        {{ anchor }}
+                    </div>
                 {% endfor %}
             </div>
         </div>
