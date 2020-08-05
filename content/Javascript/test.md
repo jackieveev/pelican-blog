@@ -1,4 +1,4 @@
-Slug: 69e85b2bb4094ba985a2e6ee8153ad31
+Slug: 179e42b55a394d2f
 Title: babel 升级到7.X采坑总结😂dd
 Tags: babel, webpack
 Summary: Short version for index and feeds
@@ -9,10 +9,34 @@ xSEE Conf <code>function</code>是蚂蚁金服体验科技大会，是一个“�
 
 ## 你好呀
 
-    #!python
-    print('123123')
-    def test(*args, **kwargs):
-        print('hello', args, kwargs)
+    #!javascript
+    (function () {
+      window.addEventListener('scroll', function (ev) {
+          var fixedNav = false,
+              fixedCatelog = false,
+              scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+          if (scrollTop > 100) {
+              fixedNav = true
+              fixedCatelog = true
+          }
+          document.querySelector('nav').style.position = fixedNav ? 'fixed' : 'static'
+          document.querySelector('main').style['padding-top'] = fixedNav ? '50px' : '0'
+          var articleCatelog = document.querySelector('#catelog')
+          if (articleCatelog) {
+              articleCatelog.style.position = fixedCatelog ? 'fixed' : 'static'
+          }
+      })
+      var pager = document.querySelector('.paginator-input')
+      pager && pager.addEventListener('keypress', function (ev) {
+          if (ev.keyCode === 13) {
+              var page = parseInt(this.value)
+              if (page && page > 0) {
+                  page = page === 1 ? '' : page
+                  window.location.href = '/index' + page + '.html'
+              }
+          }
+      })
+  })();
 
 ### 角色
 
@@ -325,4 +349,4 @@ Thank you to all the people who already contributed to Vue!
 [MIT](http://opensource.org/licenses/MIT)
 
 
-![测试一哈](https://pic3.zhimg.com/v2-aac70722726caa4865185d50c4a799a9_400x224.jpg "这是一个图片")
+![测试一哈](https://pic3.zhimg.com/v2-aac70722726caa4865185d50c4a799a9_400x224.jpg "这是一个图片")a799a9_400x224.jpg "这是一个图片")

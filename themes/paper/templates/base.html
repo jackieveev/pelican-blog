@@ -13,14 +13,38 @@
     <header id="anchor-header">
         <nav>
             <ul class="main-width-content">
+                <li {% if page_name == 'index' %} class="active"{% endif %}>
+                    <a  href="{{ SITEURL }}/">全部</a>
+                </li>
                 {% for cat, null in categories %}
                     <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
                 {% endfor %}
+                <div id="site-slogan">
+                    命数如织，当为磐石
+                </div>
             </ul>
         </nav>
     </header>
     <main class="main-width-content">
         {% block main %}{% endblock %}
     </main>
+    <footer>
+        <div id="footer-content-wrapper" class="main-width-content">
+            <div id="footer-site-links">
+                <a href="">关于我</a> · 
+                <a href="">联系方式</a> · 
+                <a href="">商务合作</a>
+                <span class="ml-20">友链：</span>
+                <a href="">阮一峰的网站</a> · 
+                <a href="">张鑫旭</a> · 
+                <a href="">前端之巅</a>
+            </div>
+            <div class="mt-15">
+                Copyright©2018-2020 Guo Liangcai 
+                <a href=""><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/site-record.png" alt=""></a> 
+                粤ICP备11018329号
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

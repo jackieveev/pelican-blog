@@ -4,7 +4,8 @@ html, body {
     width: 100%;
     height: 100%;
     background-color: #fff;
-    font-family: -apple-system, Segoe UI, "Helvetica Neue", Helvetica, PingFang SC, Arial, Noto Sans, Roboto, Microsoft Yahei, sans-serif;
+    font-family: -apple-system, Segoe UI, "Helvetica Neue", Helvetica, PingFang SC, Arial, Noto Sans, Roboto,
+                Microsoft Yahei, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';;
     line-height: 1.5;
     color: #333;
     font-size: 14px;
@@ -21,6 +22,8 @@ header nav ul {
     height: 60px;
     line-height: 60px;
     font-size: 18px;
+    clear: both;
+    overflow: hidden;
 }
 
 header nav li {
@@ -31,6 +34,31 @@ header nav li {
 
 header nav li.active {
     font-weight: bold;
+}
+
+#site-slogan {
+    float: right;
+    font-size: .8rem;
+    vertical-align: bottom;
+    color: #ccc;
+}
+
+main {
+    padding: 20px 0;
+}
+
+footer {
+    color: #999;
+    background-color: #333;
+    padding: 30px 0;
+}
+
+footer #footer-content-wrapper a {
+    color: #ccc;
+}
+
+footer #footer-content-wrapper a:hover {
+    color: #fff;
 }
 
 a,
@@ -53,14 +81,14 @@ input {
     padding: 8px 10px;
 }
 
-main {
-    padding: 20px 0;
-}
-
 /* COMMON CLASS */
 .main-width-content {
-    width: 1200px;
+    width: 1140px;
     margin: 0 auto;
+}
+
+.ml-20 {
+    margin-left: 20px;
 }
 
 .ml-10 {
@@ -75,6 +103,10 @@ main {
     margin-top: 30px;
 }
 
+.mb-30 {
+    margin-bottom: 30px;
+}
+
 .mr-20 {
     margin-right: 20px;
 }
@@ -83,4 +115,8 @@ main {
     padding: 2px 8px;
     background-color: #eee;
     margin-right: 5px;
+}
+
+.hint-text {
+    color: #666;
 }

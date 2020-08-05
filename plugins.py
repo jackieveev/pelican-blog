@@ -2,7 +2,7 @@ from pelican import signals
 from pelican.contents import Article
 import uuid, json, pathlib, datetime
 from bs4 import BeautifulSoup
-import os, sys
+import os, sys, random
 
 map = {'articles': []}
 
@@ -47,6 +47,11 @@ def add_summary(content):
             tag.a['id'] = link
             h2_titles[index].append(tag)
         content.anchors = anchors
+        highlight_tables = new_content.find_all('table', { 'class': 'highlighttable' })
+        for item in highlight_tables:
+            tag = BeautifulSoup('<div></div>', 'html.parser')
+            tag.div['class'] = 'highlighttable-wrapper'
+            item.wrap(tag.div)
         content.content_with_anchors = str(new_content)
         # 概述
         content._summary = html.text.replace('\n', ' ')
@@ -64,14 +69,15 @@ def add_info_handler(content):
 
 def add_uuid_slug(pelican):
     for root, dirs, files in os.walk(pelican.path):
+        index = len(files)
         for file in files:
             if (file.endswith('.md')):
                 with open(os.path.join(root, file), 'r+', encoding='utf8') as f:
                     data = f.readlines()
                     for line in data:
                         if line == '\n':
+                            data.insert(0, 'Slug: {}\n'.format(uuid.uuid4().hex[:16]))
                             f.seek(0)
-                            data.insert(0, 'Slug: {}\n'.format(uuid.uuid4().hex))
                             f.writelines(data)
                             break
                         if line.startswith('Slug:'):

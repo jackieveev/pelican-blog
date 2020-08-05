@@ -1,31 +1,60 @@
-#index-content {
+main {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
 
 #article-list {
-    flex: 0 0 740px;
+    flex: 0 0 760px;
 }
 
 #index-content-right {
-    margin-left: 50px;
-    flex: 1;
+    flex: 0 0 300px;
+    overflow: hidden;
 }
 
-#hot-article-list {
+#index-content-right section {
     padding: 0 30px 20px;
     border: 1px solid #333;
+    overflow: hidden;
+}
+
+#index-content-right section div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #article-list section {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding-bottom: 20px;
-    overflow: hidden;
-    /* border-bottom: 1px dashed #333; */
-    /* border: 1px solid #333; */
-    /* box-shadow: 2px 2px 0 2px #444; */
-    /* background-color: #fcfcfc; */
+}
+
+#article-list section:last-of-type {
+    margin-bottom: 0;
+}
+
+#article-list section.first-article {
+    border: 1px solid #333;
+    padding: 0 20px 30px;
+    background-color: #fbfbfb;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+#article-list section.first-article::after {
+    position: absolute;
+    content: '最新';
+    display: block;
+    width: 40px;
+    height: 40px;
+    left: 0;
+    color: #fff;
+    top: -1px;
+    left: -41px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #c44444;
 }
 
 #article-list section .article-summary {
@@ -47,7 +76,7 @@
     cursor: pointer;
 }
 
-#article-paginator .paginator-input {
+#paginator-input {
     width: 30px;
     height: 26px;
     line-height: 26px;

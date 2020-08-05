@@ -3,75 +3,87 @@
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/index.css">
 {% endblock %}
 {% block main %}
-    <div id="index-content">
-        <div id="article-list">
-            {% if articles %}
-                {% for article in articles_page.object_list %}
-                    <section>
-                        <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
-                        <div class="article-summary">
-                            <a href="{{ SITEURL }}/{{ article.url }}">{{ article._summary[:160] }}…</a>
-                        </div>
-                        <div class="article-cate-tags mt-15">
-                            分类：
-                            <a href="{{ SITEURL }}/{{ article.category.url }}" class="tag-item category-link">{{ article.category }}</a>
-                            {% if article.tags %}
-                                标签：
-                                {% for tag in article.tags %}
-                                    <a href="{{ SITEURL }}/{{ tag.url }}" class="tag-item">{{ tag }}</a>
-                                {% endfor %}
-                            {% endif %}
-                        </div>
-                        <div class="article-info mt-15">
-                            <span class="mr-20">发布于{{ article.human_read_date }}</span>
-                            <a id="article-vote">
-                                <i class="iconfont up"></i>
-                                98,238个赞
-                            </a>
-                            <a id="article-comment" class="ml-10">
-                                <i class="iconfont comment"></i>
-                                143条评论
-                            </a>
-                        </div>
-                    </section>
-                {% endfor %}
-                {% if articles_page.has_other_pages() %}
-                    <div id="article-paginator" class="mt-30">
-                        共{{ articles_paginator.num_pages }}页
-                        {% if articles_page.has_previous() %}
-                            <a class="article-paginator-jumper" href="{{ SITEURL }}/{{ articles_previous_page.url }}">上一页</a>
-                        {% endif %}
-                        <input class="paginator-input mini ml-10" type="text" value="{{ articles_page.number }}">
-                        {% if articles_page.has_next() %}
-                            <a class="article-paginator-jumper" href="{{ SITEURL }}/{{ articles_next_page.url }}">下一页</a>
-                        {% endif %}
-                        <a class="article-paginator-jumper ml-10" href="#anchor-header">回到顶部 <i class="iconfont up"></i></a>
+    <div id="article-list">
+        {% if articles %}
+            {% for article in articles_page.object_list %}
+                <section {% if loop.first and not articles_page.has_previous() %} class="first-article" {% endif %}>
+                    <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+                    <div class="article-summary">
+                        <a href="{{ SITEURL }}/{{ article.url }}">{{ article._summary[:160] }}…</a>
                     </div>
-                {% endif %}
+                    <div class="article-cate-tags mt-15">
+                        分类：
+                        <a href="{{ SITEURL }}/{{ article.category.url }}" class="tag-item category-link">{{ article.category }}</a>
+                        {% if article.tags %}
+                            标签：
+                            {% for tag in article.tags %}
+                                <a href="{{ SITEURL }}/{{ tag.url }}" class="tag-item">{{ tag }}</a>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="article-info mt-15">
+                        <span class="mr-20">发布于{{ article.human_read_date }}</span>
+                        <span>
+                            98,238次阅读
+                        </span>
+                        <a id="article-vote" class="ml-10">
+                            <i class="iconfont up"></i>
+                            238个赞
+                        </a>
+                        <a id="article-comment" class="ml-10">
+                            <i class="iconfont comment"></i>
+                            143条评论
+                        </a>
+                    </div>
+                </section>
+            {% endfor %}
+            {% if articles_page.has_other_pages() %}
+                <div id="article-paginator" class="mt-30">
+                    共{{ articles_paginator.num_pages }}页
+                    {% if articles_page.has_previous() %}
+                        <a class="article-paginator-jumper" href="{{ SITEURL }}/{{ articles_previous_page.url }}">上一页</a>
+                    {% endif %}
+                    <input id="paginator-input" class="mini ml-10" type="text" value="{{ articles_page.number }}">
+                    {% if articles_page.has_next() %}
+                        <a class="article-paginator-jumper" href="{{ SITEURL }}/{{ articles_next_page.url }}">下一页</a>
+                    {% endif %}
+                    <a class="article-paginator-jumper ml-10" href="#anchor-header">回到顶部 <i class="iconfont up"></i></a>
+                </div>
+                <script>
+                    document.querySelector('#paginator-input').addEventListener('keypress', function (ev) {
+                        if (ev.keyCode === 13) {
+                            var page = parseInt(this.value)
+                            if (page && page > 0) {
+                                page = page === 1 ? '' : page
+                                window.location.href = '{{ SITEURL }}/{{ page_name }}' + page + '.html'
+                            }
+                        }
+                    })
+                </script>
             {% endif %}
-        </div>
-        <div id="index-content-right">
-            <section id="hot-article-list">
-                <h3>📧 热评文章</h3>
-                <div class="mt-15"><a href="">支持离线编辑，语雀桌面客户端灵巧上线</a></div>
-                <div class="mt-15"><a href="">AVA/CKB：一次性解决图表命名问题</a></div>
-                <div class="mt-15"><a href="">ProcessOn x 语雀，刚见面就合拍，是遇见了对的人</a></div>
-                <div class="mt-15"><a href="">babel 智能可视化——数据分析领域的金手指</a></div>
-                <div class="mt-15"><a href="">解放图形化设计生产力 - HiTu</a></div>
-                <div class="mt-15"><a href="">支持离线编辑，语雀桌面客户端灵巧上线</a></div>
-                <div class="mt-15"><a href="">AVA/CKB：一次性解决图表命名问题</a></div>
-                <div class="mt-15"><a href="">ProcessOn x 语雀，刚见面就合拍，是遇见了对的人</a></div>
-                <div class="mt-15"><a href="">babel 智能可视化——数据分析领域的金手指</a></div>
-                <div class="mt-15"><a href="">解放图形化设计生产力 - HiTu</a></div>
-            </section>
-            <section id="hot-article-list" class="mt-30">
-                <h3>最新评论</h3>
-                <div class="mt-15"><a href="">Sayas 发表在《支持离线编辑，语雀》</a></div>
-                <div class="mt-15"><a href="">你家的海 发表在《babel 智能可视化——数》</a></div>
-                <div class="mt-15"><a href="">深圳南山 发表在《解放图形化设计生产力》</a></div>
-                <div class="mt-15"><a href="">随便的名字 发表在《ProcessOn x 语雀，刚见面》</a></div>
-                <div class="mt-15"><a href="">Jdkdsa 发表在《babel 智能可视化——数据分》</a></div>
-            </section>
-        </div>
+        {% endif %}
+    </div>
+    <div id="index-content-right">
+        <section id="hot-article-list">
+            <h3>📧 热评文章</h3>
+            <div class="mt-15"><a href="">支持离线编辑，语雀桌面客户端灵巧上线</a></div>
+            <div class="mt-15"><a href="">AVA/CKB：一次性解决图表命名问题</a></div>
+            <div class="mt-15"><a href="">ProcessOn x 语雀，刚见面就合拍，是遇见了对的人</a></div>
+            <div class="mt-15"><a href="">babel 智能可视化——数据分析领域的金手指</a></div>
+            <div class="mt-15"><a href="">解放图形化设计生产力 - HiTu</a></div>
+            <div class="mt-15"><a href="">支持离线编辑，语雀桌面客户端灵巧上线</a></div>
+            <div class="mt-15"><a href="">AVA/CKB：一次性解决图表命名问题</a></div>
+            <div class="mt-15"><a href="">ProcessOn x 语雀，刚见面就合拍，是遇见了对的人</a></div>
+            <div class="mt-15"><a href="">babel 智能可视化——数据分析领域的金手指</a></div>
+            <div class="mt-15"><a href="">解放图形化设计生产力 - HiTu</a></div>
+        </section>
+        <section id="new-comment-list" class="mt-30">
+            <h3>最新评论</h3>
+            <div class="mt-15"><a href="">Sayas 发表在《支持离线编辑，语雀》</a></div>
+            <div class="mt-15"><a href="">你家的海 发表在《babel 智能可视化——数》</a></div>
+            <div class="mt-15"><a href="">深圳南山 发表在《解放图形化设计生产力》</a></div>
+            <div class="mt-15"><a href="">随便的名字 发表在《ProcessOn x 语雀，刚见面》</a></div>
+            <div class="mt-15"><a href="">Jdkdsa 发表在《babel 智能可视化——数据分》</a></div>
+        </section>
     </div>
 {% endblock %}
