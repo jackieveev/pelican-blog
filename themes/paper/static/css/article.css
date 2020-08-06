@@ -30,6 +30,15 @@ main {
     overflow: hidden;
 }
 
+
+#article-render-content a {
+    color: #3468d8;
+}
+
+#article-render-content a:hover {
+    text-decoration: underline;
+}
+
 #article-render-content img {
     max-width: 100%;
 }

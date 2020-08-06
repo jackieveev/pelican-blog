@@ -23,6 +23,23 @@ main {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    position: relative;
+}
+
+#index-content-right #hot-article-list a {
+    z-index: 1;
+    position: relative;
+}
+
+#index-content-right #hot-article-list div::before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: #eee;
+    bottom: 2px;
+    left: 0;
+    z-index: 0;
 }
 
 #article-list section {

@@ -4,6 +4,7 @@
 {% endblock %}
 {% block main %}
     <div id="article-list">
+        
         {% if articles %}
             {% for article in articles_page.object_list %}
                 <section {% if loop.first and not articles_page.has_previous() %} class="first-article" {% endif %}>
@@ -37,6 +38,12 @@
                     </div>
                 </section>
             {% endfor %}
+            <script>
+                if (!window.metadata) {
+                    window.metadata = {}
+                }
+                window.metadata.ARTICLE_ID_LIST = ["{{ articles_page.object_list|map(attribute='slug')|join('", "') }}"]
+            </script>
             {% if articles_page.has_other_pages() %}
                 <div id="article-paginator" class="mt-30">
                     共{{ articles_paginator.num_pages }}页
