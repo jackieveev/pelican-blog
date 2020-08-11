@@ -4,7 +4,6 @@
 {% endblock %}
 {% block main %}
     <div id="article-list">
-        
         {% if articles %}
             {% for article in articles_page.object_list %}
                 <section {% if loop.first and not articles_page.has_previous() %} class="first-article" {% endif %}>

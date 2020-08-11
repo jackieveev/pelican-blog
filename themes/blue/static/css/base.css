@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
+    line-height: 1.5;
 }
 
 ul {
@@ -60,6 +61,7 @@ header .site-name span {
 
 header nav {
     padding-left: 1.5rem;
+    font-size: 1.02rem;
 }
 
 header nav li {
@@ -95,4 +97,12 @@ header .post-search-input {
 
 .paragraph-text {
     font-size: 1.14285rem;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.hint-text {
+    color: #999;
 }

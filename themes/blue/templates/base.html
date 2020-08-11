@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1964191_xmtwd70f71.css">
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/base.css">
     {% block head %}{% endblock %}
 </head>
@@ -12,7 +13,7 @@
         <div class="site-name">
             <span>Liangcai GUO</span>
         </div>
-        <nav class="paragraph-text">
+        <nav >
             <ul>
                 <li {% if page_name == 'index' %} class="active-category"{% endif %}>
                     <a  href="{{ SITEURL }}/">全部</a>
@@ -24,7 +25,9 @@
         </nav>
         <input class="post-search-input" type="text" placeholder="输入文章标题或内容">
     </header>
-    <main></main>
+    <main>
+        {% block main %}{% endblock %}
+    </main>
     <footer></footer>
 </body>
 </html>

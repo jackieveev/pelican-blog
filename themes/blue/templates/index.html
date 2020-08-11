@@ -1,1 +1,43 @@
 {% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/index.css">
+{% endblock %}
+{% block main %}
+    <div id="article-page-wrapper">
+        <div id="article-list">
+            {% if articles %}
+                {% for article in articles_page.object_list %}
+                    <section {% if loop.first and not articles_page.has_previous() %} class="first-article" {% endif %}>
+                        <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+                        <div class="article-summary">
+                            <a href="{{ SITEURL }}/{{ article.url }}">{{ article._summary[:160] }}…</a>
+                        </div>
+                        <div class="article-cate-tags mt-15">
+                            分类：
+                            <a href="{{ SITEURL }}/{{ article.category.url }}" class="tag-item category-link">{{ article.category }}</a>
+                            {% if article.tags %}
+                                标签：
+                                {% for tag in article.tags %}
+                                    <a href="{{ SITEURL }}/{{ tag.url }}" class="tag-item">{{ tag }}</a>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="article-info mt-15">
+                            <span class="public-time hint-text">发布于{{ article.human_read_date }}</span>
+                            <span class="hint-text">
+                                98,238次阅读
+                            </span>
+                            <a id="article-vote">
+                                <i class="iconfont up"></i>
+                                238个赞
+                            </a>
+                        </div>
+                    </section>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div id="article-side">
+
+        </div>
+    </div>
+{% endblock %}
