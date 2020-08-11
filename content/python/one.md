@@ -1,4 +1,4 @@
-Slug: 0c85eccdd8874ea1
+Slug: d6563fb4652b4d25a912277af2245ed0
 Title: 支持离线编辑，语雀桌面客户端灵巧上线
 Tags: 文档, 语雀
 

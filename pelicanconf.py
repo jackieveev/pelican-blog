@@ -10,7 +10,7 @@ PATH = 'content'
 
 TIMEZONE = 'Hongkong'
 
-THEME = 'themes/paper'
+THEME = 'themes/blue'
 
 # locale.getdefaultlocale returns on Windows is wrong
 # DEFAULT_LANG = 'Chinese (Simplified)'

@@ -76,7 +76,7 @@ def add_uuid_slug(pelican):
                     data = f.readlines()
                     for line in data:
                         if line == '\n':
-                            data.insert(0, 'Slug: {}\n'.format(uuid.uuid4().hex[:16]))
+                            data.insert(0, 'Slug: {}\n'.format(uuid.uuid4().hex))
                             f.seek(0)
                             f.writelines(data)
                             break

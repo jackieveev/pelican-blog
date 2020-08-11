@@ -1,0 +1,98 @@
+/* tag init */
+body {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+input {
+    padding: .4rem .6rem;
+    border: 1px solid #ccc;
+    border-radius: .2rem;
+    outline: none;
+}
+
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, .2);
+}
+
+/* base.html */
+header {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .08);
+    padding: 0 1.5rem;
+}
+
+header .site-name {
+    padding-right: 1rem;
+    border-right: 1px solid #ccc;
+}
+
+header .site-name span {
+    padding: .4rem .5rem;
+    border-radius: .2rem;
+    background-color: #007bff;
+    color: #fff;
+    margin-right: .5rem;
+}
+
+header nav {
+    padding-left: 1.5rem;
+}
+
+header nav li {
+    display: inline-block;
+    padding: .5rem .8rem;
+}
+
+header a {
+    color: #333;
+}
+
+header a:hover {
+    color: #007bff;
+}
+
+header .active-category a {
+    font-weight: 600;
+    color: #007bff;
+}
+
+header .post-search-input {
+    margin-left: auto;
+}
+
+/* common class */
+.primary-title {
+    font-size: 1.5rem;
+}
+
+.secondary-title {
+    font-size: 1.2rem;
+}
+
+.paragraph-text {
+    font-size: 1.14285rem;
+}
