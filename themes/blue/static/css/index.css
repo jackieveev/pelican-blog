@@ -1,13 +1,13 @@
 #article-page-wrapper {
     width: 80%;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     padding: 2rem 0;
 }
 
 #article-list {
-    flex: 0 0 70%;
+    flex: 0 0 65%;
 }
 
 #article-list a {
@@ -16,6 +16,21 @@
 
 #article-list section {
     margin-bottom: 3rem;
+}
+
+#article-list section.first-article {
+    padding: 1.8rem;
+    background-color: #f6f6f6;
+    border-radius: .2rem;
+    position: relative;
+}
+
+#article-list section.first-article:after {
+    position: absolute;
+    content: '最新';
+    right: .8rem;
+    top: .5rem;
+    color: #999;
 }
 
 #article-list section h2 {
@@ -27,8 +42,9 @@
 }
 
 #article-list section .tag-item {
-    padding: .2rem .4rem;
-    border: 2px solid #278cf7;
+    padding: .15rem .4rem;
+    /* border: 2px solid #278cf7; */
+    background-color: #f1f8ff;
     color: #007bff;
     border-radius: .2rem;
     margin-right: .5rem;
