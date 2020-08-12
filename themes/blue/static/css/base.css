@@ -5,6 +5,7 @@ body {
     padding: 0;
     color: #333;
     line-height: 1.5;
+    background-color: #fff;
 }
 
 ul {
@@ -84,6 +85,38 @@ header .active-category a {
 
 header .post-search-input {
     margin-left: auto;
+}
+
+footer {
+    background-color: #333;
+    color: #666;
+}
+
+footer a {
+    color: #aaa;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+#footer-wrapper {
+    padding: 1.5rem 0;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#footer-site-links {
+    margin-bottom: .5rem;
+}
+
+footer .friend-links {
+    margin-left: 2rem;
+}
+
+#site-record {
+    font-size: .8rem;
 }
 
 /* common class */

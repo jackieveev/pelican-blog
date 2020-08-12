@@ -43,8 +43,8 @@
 
 #article-list section .tag-item {
     padding: .15rem .4rem;
-    /* border: 2px solid #278cf7; */
-    background-color: #f1f8ff;
+    border: 2px solid #278cf7;
+    /* background-color: #f1f8ff; */
     color: #007bff;
     border-radius: .2rem;
     margin-right: .5rem;
@@ -59,4 +59,52 @@
     margin-left: 1rem;
     color: #007bff;
     cursor: pointer;
+}
+
+#article-side {
+    flex: 1;
+    margin-left: 3rem;
+}
+
+#article-side section {
+    border-radius: .2rem;
+    padding: 1rem 1.5rem;
+    background-color: #f6f6f6;
+    box-sizing: border-box;
+}
+
+#article-side .article-tags {
+    border: 1px solid #007bff;
+}
+
+#article-side section h4 {
+    margin-top: 0;
+}
+
+#article-side section .tag {
+    margin-right: .8rem;
+    line-height: 1.8;
+}
+
+#article-side .top-articles {
+    margin-top: 2rem;
+    border: none;
+}
+
+#article-side .top-articles a {
+    color: #333;
+    display: block;
+    margin-top: .8rem;
+}
+
+#paginator-input {
+    width: 40px;
+}
+
+#article-paginator .article-paginator-jumper {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: .2rem;
+    padding: .3rem .5rem;
+    vertical-align: middle;
 }

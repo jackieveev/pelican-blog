@@ -34,10 +34,58 @@
                         </div>
                     </section>
                 {% endfor %}
+                {% if articles_page.has_other_pages() %}
+                    <div id="article-paginator">
+                        共{{ articles_paginator.num_pages }}页
+                        {% if articles_page.has_previous() %}
+                            <a class="article-paginator-jumper" href="{{ SITEURL }}/{{ articles_previous_page.url }}">上一页</a>
+                        {% endif %}
+                        <input id="paginator-input" class="mini ml-10" type="text" value="{{ articles_page.number }}">
+                        {% if articles_page.has_next() %}
+                            <a class="article-paginator-jumper" href="{{ SITEURL }}/{{ articles_next_page.url }}">下一页</a>
+                        {% endif %}
+                        <a class="article-paginator-jumper ml-10" href="#anchor-header">回到顶部 <i class="iconfont up"></i></a>
+                    </div>
+                    <script>
+                        document.querySelector('#paginator-input').addEventListener('keypress', function (ev) {
+                            if (ev.keyCode === 13) {
+                                var page = parseInt(this.value)
+                                if (page && page > 0) {
+                                    page = page === 1 ? '' : page
+                                    window.location.href = '{{ SITEURL }}/{{ page_name }}' + page + '.html'
+                                }
+                            }
+                        })
+                    </script>
+                {% endif %}
             {% endif %}
         </div>
         <div id="article-side">
-
+            <section class="article-tags">
+                <h4>所有标签</h4>
+                <div class="article-tag-list">
+                    {% if tags %}
+                        {% for tag, _ in tags %}
+                            <a class="tag" href="{{ tag.url }}">{{ tag.name }}</a>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </section>
+            <section class="top-articles">
+                <h4>热门文章</h4>
+                <div class="top-article-list">
+                    <a href="">babel 升级到7.X采坑总结😂dd</a>
+                    <a href="">蚂蚁金服体验科技精选 第 16 期</a>
+                    <a href="">支持离线编辑，语雀桌面客户端灵巧上线</a>
+                    <a href="">蚂关于原型的思考</a>
+                    <a href="">知识库支持按目录导出</a>
+                    <a href="">babel 升级到7.X采坑总结😂dd</a>
+                    <a href="">蚂蚁金服体验科技精选 第 16 期</a>
+                    <a href="">支持离线编辑，语雀桌面客户端灵巧上线</a>
+                    <a href="">蚂关于原型的思考</a>
+                    <a href="">知识库支持按目录导出</a>
+                </div>
+            </section>
         </div>
     </div>
 {% endblock %}

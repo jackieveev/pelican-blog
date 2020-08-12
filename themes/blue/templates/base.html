@@ -9,7 +9,7 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-    <header>
+    <header id="anchor-header">
         <div class="site-name">
             <span>Liangcai GUO</span>
         </div>
@@ -28,6 +28,23 @@
     <main>
         {% block main %}{% endblock %}
     </main>
-    <footer></footer>
+    <footer>
+        <div id="footer-wrapper">
+            <div id="footer-site-links">
+                <a href="">关于我</a> · 
+                <a href="">联系方式</a> · 
+                <a href="">商务合作</a>
+                <span class="friend-links">友链：</span>
+                <a href="">阮一峰的网站</a> · 
+                <a href="">张鑫旭</a> · 
+                <a href="">前端之巅</a>
+            </div>
+            <div id="site-record">
+                Copyright©2018-2020 Guo Liangcai 
+                <a href=""><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/site-record.png" alt=""></a> 
+                粤ICP备11018329号
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
