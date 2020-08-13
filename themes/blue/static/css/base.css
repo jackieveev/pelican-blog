@@ -4,12 +4,15 @@ html {
 }
 
 body {
-    font-size: 14px;
+    font-size: 15px;
     margin: 0;
     padding: 0;
     color: #333;
     line-height: 1.5;
     background-color: #fff;
+    letter-spacing: .2px;
+    -webkit-font-smoothing: antialiased; /*chrome、safari*/
+    -moz-osx-font-smoothing: grayscale; /*firefox*/
     font-family: -apple-system, "Helvetica Neue", Helvetica, PingFang SC, Arial, Noto Sans, Roboto,
                 Microsoft Yahei, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
@@ -97,6 +100,7 @@ main {
 footer {
     color: #999;
     background-color: #333;
+    font-size: .9rem;
 }
 
 #footer-site-links a {
@@ -142,7 +146,7 @@ footer .github {
 }
 
 .mt-15 {
-    margin-top: 15px;
+    margin-top: 1.2rem;
 }
 
 .hint-text {

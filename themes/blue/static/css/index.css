@@ -28,9 +28,10 @@
 #article-list section.first-article:after {
     position: absolute;
     content: '最新';
-    right: .8rem;
+    right: 1rem;
     top: .5rem;
-    color: #999;
+    color: #bbb;
+    font-size: .9rem;
 }
 
 #article-list section h2 {
