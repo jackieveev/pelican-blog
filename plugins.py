@@ -1,36 +1,7 @@
 from pelican import signals
 from pelican.contents import Article
-import uuid, json, pathlib, datetime
+import uuid, pathlib, datetime, os
 from bs4 import BeautifulSoup
-import os, sys, random
-
-map = {'articles': []}
-
-try:
-    with open('map.json', 'r', encoding='utf8') as file:
-        map = json.load(file)
-except IOError:
-    pass
-
-def add_article_uuid(content):
-    if not isinstance(content, Article):
-        return
-    article = {
-        'title': content.title,
-        'category': content.category.name,
-        'slug': content.slug,
-        'filename':pathlib.Path(content.source_path).name
-    }
-    record = next((x for x in map['articles'] if x['slug'] == content.slug), None)
-    if (record is not None):
-        index = map['articles'].index(record)
-        map['articles'][index] = article
-    else:
-        map['articles'].append(article)
-
-def finalized(_):
-    with open('map.json', 'w', encoding='utf8') as file:
-        json.dump(map, file, ensure_ascii=False, indent=4)
 
 def add_summary(content):
     if (isinstance(content, Article)):
@@ -85,7 +56,5 @@ def add_uuid_slug(pelican):
 
 def register():
     signals.initialized.connect(add_uuid_slug)
-    signals.content_object_init.connect(add_article_uuid)
     signals.content_object_init.connect(add_summary)
     signals.content_object_init.connect(add_info_handler)
-    signals.finalized.connect(finalized)

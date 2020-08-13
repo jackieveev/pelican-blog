@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/dracula.css">
+<link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/article.css">
+{% endblock %}
+{% block main %}
+    <div id="article-content-wrapper" class="page-center-content">
+        <article>
+            <div class="article-info-wrapper">
+                <h1 class="article-title">
+                    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+                </h1>
+                <div class="article-content-info">
+                    
+                    <div class="article-cate-tag">
+                        分类：<a class="tag-item" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+                        {% if article.tags %}
+                            标签：
+                            {% for tag in article.tags %}
+                            <a class="tag-item" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> 
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div>
+                        <span class="hint-text public-time">发布于{{ article.human_read_date }}</span>
+                        <span class="hint-text">
+                            98,238次阅读
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div id="article-render-content">
+                {{ article.content_with_anchors }}
+            </div>
+        </article>
+        <aside>
+            <div id="article-catelog">
+                <h4>文章目录：</h4>
+                {% for anchor in article.anchors %}
+                    <div>
+                        {{ anchor }}
+                    </div>
+                {% endfor %}
+            </div>
+        </aside>
+    </div>
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/article.js"></script>
+{% endblock %}

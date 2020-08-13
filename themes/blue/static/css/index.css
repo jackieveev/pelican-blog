@@ -1,7 +1,4 @@
 #article-page-wrapper {
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     padding: 2rem 0;
 }
@@ -16,6 +13,10 @@
 
 #article-list section {
     margin-bottom: 3rem;
+}
+
+#article-list section:last-of-type {
+    margin-bottom: 0;
 }
 
 #article-list section.first-article {
@@ -41,15 +42,6 @@
     line-height: 1.8;
 }
 
-#article-list section .tag-item {
-    padding: .15rem .4rem;
-    border: 2px solid #278cf7;
-    /* background-color: #f1f8ff; */
-    color: #007bff;
-    border-radius: .2rem;
-    margin-right: .5rem;
-}
-
 #article-list .public-time,
 #article-list .category-link {
     margin-right: 1.5rem;
@@ -63,7 +55,7 @@
 
 #article-side {
     flex: 1;
-    margin-left: 3rem;
+    margin-left: 2rem;
 }
 
 #article-side section {
@@ -95,6 +87,10 @@
     color: #333;
     display: block;
     margin-top: .8rem;
+}
+
+#article-paginator {
+    margin-top: 2rem;
 }
 
 #paginator-input {

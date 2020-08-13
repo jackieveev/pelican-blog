@@ -102,9 +102,6 @@ footer a:hover {
 
 #footer-wrapper {
     padding: 1.5rem 0;
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 #footer-site-links {
@@ -138,4 +135,18 @@ footer .friend-links {
 
 .hint-text {
     color: #999;
+}
+
+.tag-item {
+    padding: .15rem .4rem;
+    border: 2px solid #278cf7;
+    color: #007bff !important;
+    border-radius: .2rem;
+    margin-right: .5rem;
+}
+
+.page-center-content {
+    width: 80%;
+    max-width: 1100px;
+    margin: 0 auto;
 }

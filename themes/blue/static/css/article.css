@@ -1,0 +1,121 @@
+#article-content-wrapper {
+    display: flex;
+    padding: 2rem 0;
+    box-sizing: border-box;
+    align-items: flex-start;
+}
+
+#article-content-wrapper .article-info-wrapper {
+    padding: 1.5rem;
+    background-color: #f6f6f6;
+    overflow: hidden;
+    border-radius: .2rem;
+}
+
+#article-content-wrapper .article-content-info {
+    margin-top: 1.5rem;
+}
+
+#article-content-wrapper .article-content-info .article-cate-tag {
+    margin-bottom: 1rem;
+}
+
+#article-content-wrapper .public-time {
+    margin-right: 1rem;
+}
+
+#article-content-wrapper article {
+    flex: 1;
+    overflow: hidden;
+}
+
+article .article-title {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+article .article-title a {
+    color: #333;
+}
+
+#article-render-content {
+    line-height: 1.8;
+    margin-top: 2rem;
+}
+
+#article-render-content img {
+    max-width: 100%;
+}
+
+#article-render-content h1,
+#article-render-content h2 {
+    position: relative;
+}
+
+#article-render-content blockquote {
+    background-color: #f8f8f8;
+    padding: .8rem 1.5rem;
+    border-left: 3px solid #3385dd;
+    border-radius: 0 .2rem .2rem 0;
+}
+
+#article-render-content blockquote p {
+    margin: 0;
+}
+
+#article-render-content hr {
+    height: .1rem;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #e1e4e8;
+    border: 0;
+}
+
+#article-render-content table:not(.highlighttable) {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+#article-render-content table:not(.highlighttable) thead th {
+    font-weight: bold;
+}
+
+#article-render-content table:not(.highlighttable) thead th,
+#article-render-content table:not(.highlighttable) td {
+    border: 1px solid #dfe2e5;
+    padding: 10px 15px;
+}
+
+#article-render-content table:not(.highlighttable) tbody tr:nth-child(2n) td {
+    background-color: rgba(0, 0, 0, .02);
+}
+
+#article-render-content code {
+    background-color: #f0f0f0;
+    padding: .2rem .4rem;
+    border-radius: .2rem;
+    color: #f92672;
+    margin: 0 .3rem;
+}
+
+#article-content-wrapper aside {
+    flex: 0 0 16rem;
+    margin-left: 2rem;
+}
+
+#article-catelog {
+    box-sizing: border-box;
+    padding: 1rem 1.5rem;
+    border-radius: .2rem;
+    background-color: #f6f6f6;
+    top: 2rem;
+    width: 16rem;
+}
+
+#article-catelog h4 {
+    margin: 0 0 1rem 0;
+}
+
+#article-catelog div {
+    margin-top: .5rem;
+}
