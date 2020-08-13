@@ -1,4 +1,8 @@
 /* tag init */
+html {
+    background-color: #333;
+}
+
 body {
     font-size: 14px;
     margin: 0;
@@ -6,6 +10,8 @@ body {
     color: #333;
     line-height: 1.5;
     background-color: #fff;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, PingFang SC, Arial, Noto Sans, Roboto,
+                Microsoft Yahei, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 a {
@@ -89,16 +95,16 @@ main {
 }
 
 footer {
-    background-color: #f6f6f6;
     color: #999;
+    background-color: #333;
 }
 
 #footer-site-links a {
-    color: #666;
+    color: #ccc;
 }
 
 #footer-site-links a:hover {
-    color: #333;
+    color: #fff;
 }
 
 #footer-wrapper {
@@ -106,7 +112,7 @@ footer {
 }
 
 #site-other-info {
-    margin: 1rem 0;
+    margin: .5rem 0;
 }
 
 footer .friend-links {
@@ -115,6 +121,11 @@ footer .friend-links {
 
 #site-record {
     font-size: .8rem;
+}
+
+footer .github {
+    font-size: 2rem;
+    vertical-align: middle;
 }
 
 /* common class */
