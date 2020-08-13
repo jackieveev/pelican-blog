@@ -347,6 +347,3 @@ Thank you to all the people who already contributed to Vue!
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
-
-
-![测试一哈](https://pic3.zhimg.com/v2-aac70722726caa4865185d50c4a799a9_400x224.jpg "这是一个图片")a799a9_400x224.jpg "这是一个图片")

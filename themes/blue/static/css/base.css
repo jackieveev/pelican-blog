@@ -8,15 +8,6 @@ body {
     background-color: #fff;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    list-style-type: none;
-}
-
 a {
     text-decoration: none;
     color: #007bff;
@@ -65,9 +56,15 @@ header nav {
     font-size: 1.02rem;
 }
 
+header nav ul {
+    margin: 0;
+    padding: 0;
+}
+
 header nav li {
     display: inline-block;
     padding: .5rem .8rem;
+    list-style: none;
 }
 
 header a {
@@ -85,6 +82,10 @@ header .active-category a {
 
 header .post-search-input {
     margin-left: auto;
+}
+
+main {
+    padding: 2rem 0;
 }
 
 footer {

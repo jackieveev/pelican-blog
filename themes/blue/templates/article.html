@@ -5,6 +5,11 @@
 {% endblock %}
 {% block main %}
     <div id="article-content-wrapper" class="page-center-content">
+        <div id="article-reader-operations">
+            <a href="" title="赞一个"><i class="iconfont like"></i></a>
+            <a href="" title="分享到微信"><i class="iconfont weixin"></i></a>
+            <a href="javascript:none" onclick="window.history.back()" title="返回"><i class="iconfont back"></i></a>
+        </div>
         <article>
             <div class="article-info-wrapper">
                 <h1 class="article-title">
@@ -31,6 +36,25 @@
             </div>
             <div id="article-render-content">
                 {{ article.content_with_anchors }}
+            </div>
+            <div id="article-content-footer">
+                <div class="neighbor-article">
+                    上一篇：
+                    {% if article.next_article_in_category %}
+                        <a href="{{ SITEURL }}/{{ article.next_article_in_category.url }}">{{ article.next_article_in_category.title }}</a>
+                    {% else %}
+                        没有了
+                    {% endif %}
+                </div>
+                <span class="hint-text">[ 文章结束 ]</span>
+                <div class="neighbor-article">
+                    下一篇：
+                    {% if article.prev_article_in_category %}
+                        <a href="{{ SITEURL }}/{{ article.prev_article_in_category.url }}">{{ article.prev_article_in_category.title }}</a>
+                    {% else %}
+                        没有了
+                    {% endif %}
+                </div>
             </div>
         </article>
         <aside>

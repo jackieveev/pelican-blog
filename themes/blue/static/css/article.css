@@ -1,8 +1,42 @@
 #article-content-wrapper {
     display: flex;
-    padding: 2rem 0;
     box-sizing: border-box;
     align-items: flex-start;
+    position: relative;
+}
+
+#article-reader-operations {
+    position: absolute;
+    transform: translateX(-60px);
+    top: 2rem;
+}
+
+#article-reader-operations a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    margin-top: 1rem;
+    color: #ddd;
+    background-color: #f6f6f6;
+    border: 1px solid #eee;
+    transition: .1s;
+}
+
+#article-reader-operations a:first-child {
+    margin-top: 0;
+}
+
+#article-reader-operations a:hover {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px #93c7ff;
+}
+
+#article-reader-operations a i {
+    font-size: 1.3rem;
 }
 
 #article-content-wrapper .article-info-wrapper {
@@ -96,6 +130,26 @@ article .article-title a {
     border-radius: .2rem;
     color: #f92672;
     margin: 0 .3rem;
+}
+
+#article-content-footer {
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: #f6f6f6;
+    border-radius: .2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#article-content-footer .neighbor-article {
+    flex: 0 0 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#article-content-footer .neighbor-article:last-of-type {
+    text-align: right;
 }
 
 #article-content-wrapper aside {

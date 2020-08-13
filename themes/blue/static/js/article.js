@@ -6,5 +6,6 @@
             fixed = true
         }
         document.querySelector('#article-catelog').style['position'] = fixed ? 'fixed' : 'static'
+        document.querySelector('#article-reader-operations').style['position'] = fixed ? 'fixed' : 'absolute'
     })
 })();
