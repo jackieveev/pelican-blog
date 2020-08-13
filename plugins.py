@@ -57,6 +57,15 @@ def add_summary(content):
         html = BeautifulSoup(content._content, 'html.parser')
         # 锚点
         new_content = BeautifulSoup(content._content, 'html.parser')
+        # titles = html.find_all(['h1', 'h2', 'h3', 'h4'])
+        # anchor_tree = []
+        # pre = None
+        # cur = None
+        # for index, item in enumerate(section_titles):
+        #     if pre != item.name:
+        #         pre = item.name
+        #         anchor_tree.append({ 'tag': item.name, 'children': [] })
+        #     anchor = 'article-anchor-{}'.format(index)
         anchors = html.find_all(['h1', 'h2'])
         h2_titles = new_content.find_all(['h1', 'h2'])
         for index, item in enumerate(anchors):
@@ -67,6 +76,7 @@ def add_summary(content):
             tag.a['id'] = link
             h2_titles[index].append(tag)
         content.anchors = anchors
+        # 代码块包裹div，让其可以滚动
         highlight_tables = new_content.find_all('table', { 'class': 'highlighttable' })
         for item in highlight_tables:
             tag = BeautifulSoup('<div></div>', 'html.parser')

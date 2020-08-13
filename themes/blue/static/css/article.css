@@ -81,8 +81,14 @@ article .article-title a {
     max-width: 100%;
 }
 
+#article-render-content h1 {
+    font-size: 1.6rem;
+}
+
 #article-render-content h1,
-#article-render-content h2 {
+#article-render-content h2,
+#article-render-content h3,
+#article-render-content h4 {
     position: relative;
 }
 
