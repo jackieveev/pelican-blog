@@ -89,24 +89,24 @@ main {
 }
 
 footer {
-    background-color: #333;
+    background-color: #f6f6f6;
+    color: #999;
+}
+
+#footer-site-links a {
     color: #666;
 }
 
-footer a {
-    color: #aaa;
-}
-
-footer a:hover {
-    color: #fff;
+#footer-site-links a:hover {
+    color: #333;
 }
 
 #footer-wrapper {
     padding: 1.5rem 0;
 }
 
-#footer-site-links {
-    margin-bottom: .5rem;
+#site-other-info {
+    margin: 1rem 0;
 }
 
 footer .friend-links {
