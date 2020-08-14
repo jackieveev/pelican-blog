@@ -59,12 +59,16 @@
         </article>
         <aside>
             <div id="article-catelog">
-                <h4>文章目录：</h4>
-                {% for anchor in article.anchors %}
-                    <div>
-                        {{ anchor }}
-                    </div>
-                {% endfor %}
+                <h4>目录</h4>
+                {% if article.headings %}
+                    <ul>
+                        {% for level, tag in article.headings %}
+                            <li class="heading-level-{{ level }} {% if loop.first %}current-heading{% endif %}">
+                                {{ tag }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
             </div>
         </aside>
     </div>

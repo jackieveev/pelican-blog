@@ -56,41 +56,29 @@ def add_summary(content):
     if (isinstance(content, Article)):
         html = BeautifulSoup(content._content, 'html.parser')
         # 锚点
-        new_content = BeautifulSoup(content._content, 'html.parser')
-        # titles = html.find_all(['h1', 'h2', 'h3', 'h4'])
-        # anchor_tree = []
-        # pre = None
-        # cur = None
-        # for index, item in enumerate(section_titles):
-        #     if pre != item.name:
-        #         pre = item.name
-        #         anchor_tree.append({ 'tag': item.name, 'children': [] })
-        #     anchor = 'article-anchor-{}'.format(index)
-        anchors = html.find_all(['h1', 'h2'])
-        h2_titles = new_content.find_all(['h1', 'h2'])
-        for index, item in enumerate(anchors):
-            item.name = 'a'
+        titles = html.find_all(['h1', 'h2', 'h3', 'h4'])
+        headings = []
+        for index, title in enumerate(titles):
+            level = int(title.name.replace('h', ''))
             link = 'article-anchor-{}'.format(index)
-            item['href'] = '#{}'.format(link)
-            tag = BeautifulSoup('<a class="article-anchor"></a>', 'html.parser')
-            tag.a['id'] = link
-            h2_titles[index].append(tag)
-        content.anchors = anchors
+            title_anchor = BeautifulSoup('<a class="article-anchor"></a>', 'html.parser')
+            click_tag = BeautifulSoup('<a></a>', 'html.parser')
+            title_anchor.a['id'] = link
+            title['class'] = 'article-headings'
+            click_tag.a['href'] = '#{}'.format(link)
+            click_tag.a.append(title.text)
+            title.append(title_anchor)
+            headings.append((level, click_tag))
+        content.headings = headings if len(headings) else None
         # 代码块包裹div，让其可以滚动
-        highlight_tables = new_content.find_all('table', { 'class': 'highlighttable' })
+        highlight_tables = html.find_all('table', { 'class': 'highlighttable' })
         for item in highlight_tables:
             tag = BeautifulSoup('<div></div>', 'html.parser')
             tag.div['class'] = 'highlighttable-wrapper'
             item.wrap(tag.div)
-        content.content_with_anchors = str(new_content)
+        content.content_with_anchors = str(html)
         # 概述
         content._summary = html.text.replace('\n', ' ')
-        # 首图
-        img = html.find('img')
-        if img:
-            img['class'] = 'article-thumb-image mr25'
-        content.thumb_image = img
-        content.title = content.title
 
 def add_info_handler(content):
     if (isinstance(content, Article)):
