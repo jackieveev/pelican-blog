@@ -52,12 +52,16 @@ header .site-name {
     border-right: 1px solid #ccc;
 }
 
-header .site-name span {
+header .site-name a {
     padding: .4rem .5rem;
     border-radius: .2rem;
     background-color: #007bff;
     color: #fff;
     margin-right: .5rem;
+}
+
+header .site-name a:hover {
+    color: #fff;
 }
 
 header nav {

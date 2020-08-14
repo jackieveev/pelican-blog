@@ -188,7 +188,7 @@ article .article-title a {
 }
 
 #article-catelog h4 {
-    margin: 0 0 .6rem 0;
+    margin: 0 0 1rem 0;
 }
 
 #article-catelog ul {
@@ -267,4 +267,42 @@ article .article-title a {
 #article-catelog .current-heading a {
     color: #007bff;
     text-decoration: underline;
+}
+
+#back-to-top {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+    text-align: center;
+    line-height: 3rem;
+    color: #007bff;
+    font-weight: bold;
+    background-color: #fff;
+    visibility: hidden;
+}
+
+#back-to-top:hover {
+    transform: rotate(-45deg);
+    transition: 1s;
+}
+
+#back-to-top:hover span {
+    display: inline-block;
+    animation-delay: 1s;
+    animation: rock-it 3s ease-in;
+}
+
+@keyframes rock-it {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translate(14px, -14px);
+    }
 }

@@ -8,6 +8,7 @@
         }
         document.querySelector('#article-catelog').style['position'] = fixed ? 'fixed' : 'static'
         document.querySelector('#article-reader-operations').style['position'] = fixed ? 'fixed' : 'absolute'
+        document.querySelector('#back-to-top').style['visibility'] = fixed ? 'visible' : 'hidden'
         if (changedByClick) {
             changedByClick = false
             return
