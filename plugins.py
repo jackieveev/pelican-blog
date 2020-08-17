@@ -1,7 +1,21 @@
 from pelican import signals
 from pelican.contents import Article
-import uuid, pathlib, datetime, os
+import uuid, pathlib, datetime, os, glob, sys, time
 from bs4 import BeautifulSoup
+from css_html_js_minify import (
+    process_single_css_file,
+    process_single_html_file,
+    process_single_js_file,
+)
+
+def compress(pelican):
+    time.sleep(10)
+    for f in glob.iglob(pelican.output_path + '/**/*.htm*', recursive=True):
+        process_single_html_file(f, overwrite=True)
+    for f in glob.iglob(pelican.output_path + '/**/*.css', recursive=True):
+        process_single_css_file(f, overwrite=True)
+    for f in glob.iglob(pelican.output_path + '/**/*.js', recursive=True):
+        process_single_js_file(f, overwrite=True)
 
 def iter3(seq):
     """Generate one triplet per element in 'seq' following PEP-479."""
@@ -106,3 +120,4 @@ def register():
     signals.content_object_init.connect(add_summary)
     signals.content_object_init.connect(add_info_handler)
     signals.article_generator_finalized.connect(neighbors)
+    signals.finalized.connect(compress)
