@@ -1,6 +1,6 @@
 from pelican import signals
 from pelican.contents import Article
-import uuid, pathlib, datetime, os, glob, sys, time
+import uuid, pathlib, datetime, os, glob, sys
 from bs4 import BeautifulSoup
 from css_html_js_minify import (
     process_single_css_file,
@@ -9,7 +9,6 @@ from css_html_js_minify import (
 )
 
 def compress(pelican):
-    time.sleep(10)
     for f in glob.iglob(pelican.output_path + '/**/*.htm*', recursive=True):
         process_single_html_file(f, overwrite=True)
     for f in glob.iglob(pelican.output_path + '/**/*.css', recursive=True):
