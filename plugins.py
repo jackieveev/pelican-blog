@@ -119,4 +119,4 @@ def register():
     signals.content_object_init.connect(add_summary)
     signals.content_object_init.connect(add_info_handler)
     signals.article_generator_finalized.connect(neighbors)
-    # signals.finalized.connect(compress)
+    signals.finalized.connect(compress)
