@@ -104,7 +104,6 @@ def livereload(c):
     # Serve output path on configured port
     server.serve(port=CONFIG['port'], root=CONFIG['deploy_path'])
 
-
 @task
 def publish(c):
     """Publish to production via rsync"""
