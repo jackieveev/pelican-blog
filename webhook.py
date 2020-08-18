@@ -16,7 +16,7 @@ def webhook():
     lock.acquire()
     if pre_task is not None:
         pre_task.kill()
-    pre_task = subprocess.Popen('invoke build && mv output/* -o /usr/local/nginx/html/*')
+    pre_task = subprocess.Popen('invoke build && mv ./output/ /usr/local/nginx/html/blog')
     lock.release()
     return 'ok'
 
