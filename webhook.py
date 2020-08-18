@@ -17,7 +17,7 @@ def webhook():
     global pre_task
     if pre_task is not None:
         pre_task.kill()
-    pre_task = subprocess.Popen('sh build.sh', close_fds=False)
+    pe_task = subprocess.Popen(['sh', 'build.sh'])
     lock.release()
     return 'ok'
 
