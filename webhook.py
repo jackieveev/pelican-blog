@@ -14,9 +14,10 @@ def webhook():
     print(request.json)
     print('\n\n')
     lock.acquire()
+    global pre_task
     if pre_task is not None:
         pre_task.kill()
-    pre_task = subprocess.Popen('sh build.sh')
+    pre_task = subprocess.Popen('sh build.sh', close_fds=False)
     lock.release()
     return 'ok'
 
