@@ -90,6 +90,7 @@ article .article-title a {
 #article-render-content h3,
 #article-render-content h4 {
     position: relative;
+    margin: 1.6em 0 .6em 0;
 }
 
 #article-render-content .article-anchor {
