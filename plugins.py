@@ -69,10 +69,10 @@ def add_summary(content):
     if (isinstance(content, Article)):
         html = BeautifulSoup(content._content, 'html.parser')
         # 锚点
-        titles = html.find_all(['h1', 'h2', 'h3', 'h4'])
+        titles = html.find_all(['h2', 'h3', 'h4'])
         headings = []
         for index, title in enumerate(titles):
-            level = int(title.name.replace('h', ''))
+            level = int(title.name.replace('h', '')) - 1
             link = 'article-anchor-{}'.format(index)
             title_anchor = BeautifulSoup('<a class="article-anchor"></a>', 'html.parser')
             click_tag = BeautifulSoup('<a></a>', 'html.parser')

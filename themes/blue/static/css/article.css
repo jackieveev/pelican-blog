@@ -81,11 +81,11 @@ article .article-title a {
     max-width: 100%;
 }
 
-#article-render-content h1 {
-    font-size: 1.6rem;
+#article-render-content h2 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: .5rem;
 }
 
-#article-render-content h1,
 #article-render-content h2,
 #article-render-content h3,
 #article-render-content h4 {
@@ -253,15 +253,6 @@ article .article-title a {
 #article-catelog li.heading-level-3:before {
     width: 2rem;
     left: -2rem;
-}
-
-#article-catelog .heading-level-4 {
-    margin-left: 3rem;
-}
-
-#article-catelog li.heading-level-4:before {
-    width: 3rem;
-    left: -3rem;
 }
 
 #article-catelog .current-heading a {
