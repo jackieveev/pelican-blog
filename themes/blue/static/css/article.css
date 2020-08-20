@@ -8,7 +8,7 @@
 #article-reader-operations {
     position: absolute;
     transform: translateX(-60px);
-    top: 2rem;
+    top: 1rem;
 }
 
 #article-reader-operations a {
@@ -19,8 +19,7 @@
     border-radius: 50%;
     margin-top: 1rem;
     color: #ddd;
-    background-color: #f6f6f6;
-    border: 1px solid #eee;
+    background-color: #ffffff;
     transition: .1s;
 }
 
@@ -31,19 +30,11 @@
 #article-reader-operations a:hover {
     color: #fff;
     background-color: #007bff;
-    border-color: #007bff;
     box-shadow: 0 0 0 3px #93c7ff;
 }
 
 #article-reader-operations a i {
     font-size: 1.3rem;
-}
-
-#article-content-wrapper .article-info-wrapper {
-    padding: 1.5rem;
-    background-color: #f6f6f6;
-    overflow: hidden;
-    border-radius: .2rem;
 }
 
 #article-content-wrapper .article-content-info {
@@ -65,16 +56,20 @@
 
 article .article-title {
     font-size: 1.8rem;
-    margin: 0;
 }
 
 article .article-title a {
     color: #333;
 }
 
+article .article-info-wrapper {
+    padding: 0 1.8rem;
+}
+
 #article-render-content {
     line-height: 1.8;
     margin-top: 2rem;
+    padding: 0 1.8rem;
 }
 
 #article-render-content img {
@@ -91,6 +86,10 @@ article .article-title a {
 #article-render-content h4 {
     position: relative;
     margin: 1.6em 0 .6em 0;
+}
+
+#article-render-content p {
+    margin: 1.2em 0;
 }
 
 #article-render-content .article-anchor {
@@ -146,12 +145,12 @@ article .article-title a {
 }
 
 #article-content-footer {
-    padding: 1rem;
-    margin-top: 1rem;
-    background-color: #f6f6f6;
+    padding: 1rem 1.8rem;
+    margin-top: 2rem;
     border-radius: .2rem;
     display: flex;
     justify-content: space-between;
+    border-top: 1px solid #eee;
 }
 
 #article-content-footer .neighbor-article {
@@ -174,8 +173,6 @@ article .article-title a {
 #article-catelog {
     box-sizing: border-box;
     padding: 1rem 1.5rem;
-    background-color: #f6f6f6;
-    border-radius: .2rem;
     top: 2rem;
     width: 20rem;
     max-height: 600px;
@@ -203,7 +200,7 @@ article .article-title a {
     content: '';
     position: absolute;
     width: 0;
-    border-left: 1px dashed #eee;
+    border-left: 1px dashed #f8f8f8;
     left: 0;
     top: .6rem;
     bottom: .8rem;
@@ -229,7 +226,7 @@ article .article-title a {
     content: '';
     height: 0;
     width: 1rem;
-    border-bottom: 1px dashed #eee;
+    border-bottom: 1px dashed #f8f8f8;
     position: absolute;
     top: 50%;
     left: -1rem;

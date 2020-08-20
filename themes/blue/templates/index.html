@@ -4,7 +4,7 @@
 {% endblock %}
 {% block main %}
     <div id="article-page-wrapper" class="page-center-content">
-        <div id="article-list">
+        <div id="article-list" class="panel">
             {% if articles %}
                 {% for article in articles_page.object_list %}
                     {% set first = loop.first and not articles_page.has_previous() %}
@@ -62,7 +62,7 @@
             {% endif %}
         </div>
         <div id="article-side">
-            <section class="article-tags">
+            <section class="article-tags panel">
                 <h4>所有标签</h4>
                 <div class="article-tag-list">
                     {% if tags %}
@@ -72,7 +72,7 @@
                     {% endif %}
                 </div>
             </section>
-            <section class="top-articles">
+            <section class="top-articles panel">
                 <h4>热门文章</h4>
                 <div class="top-article-list">
                     无

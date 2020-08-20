@@ -10,7 +10,7 @@
             <!-- <a href="" title="分享到微信"><i class="iconfont weixin"></i></a> -->
             <a href="javascript:none" onclick="window.history.back()" title="返回"><i class="iconfont back"></i></a>
         </div>
-        <article>
+        <article  class="panel">
             <div class="article-info-wrapper">
                 <h1 class="article-title">
                     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
@@ -58,7 +58,7 @@
             </div>
         </article>
         <aside>
-            <div id="article-catelog">
+            <div id="article-catelog" class="panel">
                 <h4>目录</h4>
                 {% if article.headings %}
                     <ul>
