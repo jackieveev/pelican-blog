@@ -100,9 +100,10 @@ article .article-info-wrapper {
 
 #article-render-content blockquote {
     background-color: #f8f8f8;
-    padding: .8rem 1.5rem;
-    border-left: 3px solid #3385dd;
+    padding: .5rem 1.5rem;
+    border-left: 3px solid #ccc;
     border-radius: 0 .2rem .2rem 0;
+    margin-left: 0;
 }
 
 #article-render-content blockquote p {
@@ -142,6 +143,7 @@ article .article-info-wrapper {
     border-radius: .2rem;
     color: #f92672;
     margin: 0 .3rem;
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace,Microsoft Yahei;
 }
 
 #article-content-footer {
@@ -164,9 +166,9 @@ article .article-info-wrapper {
     text-align: right;
 }
 
-/* 这里取20rem，catelog应该也设置这个固定值，在滚动固定时就不会变 */
+/* 这里取18rem，catelog应该也设置这个固定值，在滚动固定时就不会变 */
 #article-content-wrapper aside {
-    flex: 0 0 20rem;
+    flex: 0 0 18rem;
     margin-left: 2rem;
 }
 
@@ -174,7 +176,7 @@ article .article-info-wrapper {
     box-sizing: border-box;
     padding: 1rem 1.5rem;
     top: 2rem;
-    width: 20rem;
+    width: 18rem;
     max-height: 600px;
     max-height: 90vh;
     overflow: auto;
